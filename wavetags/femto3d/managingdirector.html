@@ -99,7 +99,7 @@
             <div class="flex justify-center space-x-6 mt-3 mb-6 text-gray-700">
                 <a href=" https://www.facebook.com/femto3d" target="_blank" class="hover:text-blue-800" title="Facebook"><i class="fab fa-facebook-f text-2xl"></i></a>
                 <a href=" https://twitter.com/femto3d" target="_blank" class="hover:text-gray-700" title="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="#" target="_blank" class="hover:text-blue-900" title="LinkedIn"><i class="fab fa-linkedin-in text-2xl"></i></a>
+<!--                 <a href="#" target="_blank" class="hover:text-blue-900" title="LinkedIn"><i class="fab fa-linkedin-in text-2xl"></i></a> -->
                 <a href="https://www.instagram.com/femto3d_" target="_blank" class="hover:text-pink-700" title="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
                 <a href="https://www.youtube.com/@femto3d/" target="_blank" class="hover:text-red-800" title="YouTube"><i class="fab fa-youtube text-2xl"></i></a>
             </div>
@@ -107,17 +107,32 @@
     </div>
     
     <script>
-        function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Abdul Muhsin A\nORG:Femto3D\nTITLE:Managing Director\nTEL;TYPE=Managing Director,voice:+919087344274\nTEL;TYPE=Office,voice:04362 450885\nEMAIL:admin@femto3d.com\nURL:https://www.femto3d.com\nEND:VCARD`;
-            
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Femto3D_Contact.vcf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+            function downloadVCard() {
+    const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Abdul Muhsin A
+ORG:Femto 3D
+TITLE:Managing Director
+TEL;TYPE=mobile,voice:+919087344274
+TEL;TYPE=office,voice:04362450885
+EMAIL:admin@femto3d.com
+URL:https://www.femto3d.com
+ADR;TYPE=Windsor:;;10.76433° N, 79.13264° E
+X-SOCIALPROFILE;TYPE=Facebook:https://www.facebook.com/femto3d
+X-SOCIALPROFILE;TYPE=Twitter:https://twitter.com/femto3d
+X-SOCIALPROFILE;TYPE=Instagram:https://www.instagram.com/femto3d_
+X-SOCIALPROFILE;TYPE=YouTube:https://www.youtube.com/@femto3d/
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Femto3D.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
         function shareCard() {
             if (navigator.share) {
