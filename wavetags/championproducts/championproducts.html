@@ -86,12 +86,12 @@
 
     <script>
         function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ashok Sood\nORG:Champion Products\nTITLE:Chief Executive Officer\nTEL;TYPE=work,voice:+1-519-946-4440\nEMAIL:asood@championproducts.com\nURL:https://www.championproducts.com\nEND:VCARD`;
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Champion Products\nORG:Champion Products\nTITLE:Windsor\nTEL;TYPE=work,voice:+1-519-252-5414\nTITLE:Vaughan\nTEL;TYPE=work,voice:+1-289-695-3900\nURL:https://www.championproducts.com\nEND:VCARD`;
             
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = 'Ashok_Sood_Champion_Products.vcf';
+            link.download = 'Champion_Products.vcf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -101,7 +101,7 @@
             if (navigator.share) {
                 navigator.share({
                     title: 'Champion Products Digital Card',
-                    text: 'Check out Ashok Sood\'s business card.',
+                    text: 'Check out Championproducts\'s business card.',
                     url: window.location.href
                 }).catch(err => console.log('Sharing failed', err));
             } else {
