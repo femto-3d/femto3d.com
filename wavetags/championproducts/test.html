@@ -112,32 +112,18 @@ END:VCARD`;
 }
 
 
-        // function shareCard() {
-        //     if (navigator.share) {
-        //         navigator.share({
-        //             title: 'Champion Products Digital Card',
-        //             text: 'Check out Ashok Sood\'s business card.',
-        //             url: window.location.href
-        //         }).catch(err => console.log('Sharing failed', err));
-        //     } else {
-        //         alert('Sharing not supported on this browser.');
-        //     }
-        // }
         function shareCard() {
-    const cardUrl = window.location.href;
-    const logoUrl = window.location.origin + "/champion_products_corp_logo.png";
-    const message = `Check out Ashok Sood's business card for Champion Products.\n\nWebsite: ${cardUrl}\n\nCompany Logo: ${logoUrl}`;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Champion Products Digital Card',
+                    text: 'Check out Ashok Sood\'s business card.',
+                    url: window.location.href
+                }).catch(err => console.log('Sharing failed', err));
+            } else {
+                alert('Sharing not supported on this browser.');
+            }
+        }
 
-    if (navigator.share) {
-        navigator.share({
-            title: "Champion Products Digital Card",
-            text: message,
-            url: cardUrl
-        }).catch(err => console.log("Sharing failed", err));
-    } else {
-        alert("Sharing not supported on this browser. You can manually share this link:\n" + cardUrl);
-    }
-}
 
     </script>
 </body>
