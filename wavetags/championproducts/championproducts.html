@@ -85,17 +85,44 @@
     </div>
 
     <script>
-        function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Champion Products\nORG:Champion Products\nTITLE:Windsor\nTEL;TYPE=Windsor,voice:+1-519-252-5414\nTITLE:Vaughan\nTEL;TYPE=Vaughan,voice:+1-289-695-3900\nURL:https://www.championproducts.com\nEND:VCARD`;
+        // function downloadVCard() {
+        //     const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Champion Products\nORG:Champion Products\nTITLE:Windsor\nTEL;TYPE=Windsor,voice:+1-519-252-5414\nTITLE:Vaughan\nTEL;TYPE=Vaughan,voice:+1-289-695-3900\nURL:https://www.championproducts.com\nEND:VCARD`;
             
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Champion_Products.vcf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+        //     const blob = new Blob([vCardData], { type: 'text/vcard' });
+        //     const link = document.createElement('a');
+        //     link.href = URL.createObjectURL(blob);
+        //     link.download = 'Champion_Products.vcf';
+        //     document.body.appendChild(link);
+        //     link.click();
+        //     document.body.removeChild(link);
+        // }
+             function downloadVCard() {
+    const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Champion Products
+ORG:Champion Products
+TITLE:Champion Products
+TEL;TYPE=Windsor,voice:+1-519-252-5414
+TEL;TYPE=Vaughan,voice:+1-289-695-3900
+URL:https://www.championproducts.com
+ADR;TYPE=Windsor:;;2601 Wyandotte Street East;Windsor;ON;N8Y 0A5;Canada
+ADR;TYPE=Vaughan:;;140 Great Gulf Drive, Unit C;Vaughan;ON;L4K 5W5;Canada
+X-SOCIALPROFILE;TYPE=Facebook:https://www.facebook.com/championproducts
+X-SOCIALPROFILE;TYPE=Twitter:https://twitter.com/championproduct
+X-SOCIALPROFILE;TYPE=LinkedIn:https://www.linkedin.com/company/champion-products-corp?trk=tabs_biz_home
+X-SOCIALPROFILE;TYPE=Instagram:https://www.instagram.com/championproductscorp/
+X-SOCIALPROFILE;TYPE=YouTube:https://www.youtube.com/user/championproducts1?reload=9
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Ashok_Sood_Champion_Products.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 
         function shareCard() {
             if (navigator.share) {
