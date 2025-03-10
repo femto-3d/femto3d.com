@@ -86,7 +86,7 @@
 
     <script>
         function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Champion Products\nORG:Champion Products\nTITLE:Windsor\nTEL;TYPE=work,voice:+1-519-252-5414\nTITLE:Vaughan\nTEL;TYPE=work,voice:+1-289-695-3900\nURL:https://www.championproducts.com\nEND:VCARD`;
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Champion Products\nORG:Champion Products\nTITLE:Windsor\nTEL;TYPE=Windsor,voice:+1-519-252-5414\nTITLE:Vaughan\nTEL;TYPE=Vaughan,voice:+1-289-695-3900\nURL:https://www.championproducts.com\nEND:VCARD`;
             
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const link = document.createElement('a');
