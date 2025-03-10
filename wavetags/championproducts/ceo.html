@@ -85,7 +85,7 @@
 
     <script>
         function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ashok Sood\nORG:Champion Products\nTITLE:Chief Executive Officer\nTEL;TYPE=work,voice:+1-519-946-4440\nEMAIL:asood@championproducts.com\nURL:https://www.championproducts.com\nEND:VCARD`;
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Ashok Sood\nORG:Champion Products\nTITLE:Chief Executive Officer\nTEL;TYPE=Chief Executive Officer,voice:+1-519-946-4440\nEMAIL:asood@championproducts.com\nURL:https://www.championproducts.com\nEND:VCARD`;
             
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const link = document.createElement('a');
