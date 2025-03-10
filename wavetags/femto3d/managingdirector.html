@@ -108,7 +108,7 @@
     
     <script>
         function downloadVCard() {
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Abdul Muhsin A\nORG:Femto3D\nTITLE:Managing Director\nTEL;TYPE=work,voice:+919087344274\nTEL;TYPE=work,voice:04362 450885\nEMAIL:admin@femto3d.com\nURL:https://www.femto3d.com\nEND:VCARD`;
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Abdul Muhsin A\nORG:Femto3D\nTITLE:Managing Director\nTEL;TYPE=Managing Director,voice:+919087344274\nTEL;TYPE=Office,voice:04362 450885\nEMAIL:admin@femto3d.com\nURL:https://www.femto3d.com\nEND:VCARD`;
             
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const link = document.createElement('a');
