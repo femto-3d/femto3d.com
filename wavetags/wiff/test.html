@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIFF - Digital Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="wiff_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+    <div class="bg-gray-800 text-white max-w-sm w-full shadow-lg rounded-2xl p-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 opacity-20"></div>
+        
+        <!-- QR Code -->
+        <div id="qr-code" class="absolute top-4 right-4 w-12 h-12"></div>
+        
+        <!-- Header with Background and Logo -->
+        <div class="relative text-center">
+            <img class="w-full h-40 object-cover rounded-lg" src="cover.jpg" alt="Background">
+            <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 rounded-full bg-gray-900 p-2 shadow-lg">
+                <img class="w-20 h-20 object-cover rounded-full" src="wiff_logo.png" alt="Company Logo">
+            </div>
+        </div>
+        
+        <!-- Company Name -->
+        <div class="mt-12 text-center">
+            <h1 class="text-2xl font-bold">WIFF</h1>
+            <p class="text-gray-400 text-sm">Windsor International Film Festival</p>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="mt-6 flex space-x-4">
+            <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition" onclick="downloadVCard()">ADD TO CONTACTS</button>
+            <button class="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition" onclick="shareCard()">SHARE</button>
+        </div>
+        
+        <!-- Contact Icons -->
+        <div class="grid grid-cols-3 gap-4 mt-6 text-center text-gray-300">
+            <a href="tel:+12268269433" class="flex flex-col items-center hover:text-green-400 transition"><i class="fas fa-phone text-xl"></i> Call</a>
+            <a href="https://windsorfilmfestival.com" target="_blank" class="flex flex-col items-center hover:text-blue-400 transition"><i class="fas fa-globe text-xl"></i> Website</a>
+            <a href="https://www.instagram.com/windsorfilmfest/" target="_blank" class="flex flex-col items-center hover:text-pink-400 transition"><i class="fab fa-instagram text-xl"></i> Instagram</a>
+        </div>
+        
+        <!-- Address -->
+        <div class="mt-6 text-center text-gray-300 text-sm">
+            <p><strong>101 University Ave. W.</strong><br> Windsor, ON - N9A 5P4</p>
+        </div>
+        
+        <!-- About Section -->
+        <div class="mt-6 text-gray-300 text-sm text-center">
+            <h3 class="text-lg font-semibold text-white">About Us</h3>
+            <p class="mt-2">WIFF is a cultural organization celebrating cinema by showcasing Canadian and international films, strengthening community, and promoting the creative economy.</p>
+        </div>
+        
+        <!-- Social Media Icons -->
+        <div class="mt-6 flex justify-center space-x-6">
+            <a href="#" class="text-blue-400 hover:text-blue-600 text-xl"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 text-xl"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-pink-500 hover:text-pink-700 text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-red-500 hover:text-red-700 text-xl"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <div class="mt-6 text-center text-gray-400 text-sm">
+            <p>Powered by <a href="https://www.femto3d.ca" target="_blank" class="text-blue-400 font-semibold hover:underline">femto3d.ca</a></p>
+        </div>
+    </div>
+    
+    <script>
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:WIFF\nTEL;TYPE=Windsor,voice:+1-226-826-9433\nURL:https://windsorfilmfestival.com\nADR;TYPE=Windsor:;;101 University Ave. W.;Windsor;ON;N9A 5P4;Canada\nEND:VCARD`;
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'WIFF.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'WIFF Digital Card',
+                    text: 'Check out WIFF\'s business card.',
+                    url: window.location.href
+                }).catch(err => console.log('Sharing failed', err));
+            } else {
+                alert('Sharing not supported on this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
