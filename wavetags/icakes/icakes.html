@@ -119,20 +119,24 @@
 </div>
     
 
-<!-- N:LastName;FirstName;MiddleName;Prefix;Suffix -->
+<!-- N:LastName;FirstName;MiddleName;Prefix;Suffix 
+    ADR;TYPE=Cranbrook:;;51.560035° N, 0.070166° E​
+ADR;TYPE=Gantshill:;;51.577858° N​, 0.065494° E-->
     <script>
             function downloadVCard() {
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
 N:london;icakes;;;
 ORG:Cake shop
-TEL;TYPE=Whatsapp,voice:447493727667
-TEL;TYPE=Ilford,voice:02089116111
-TEL;TYPE=Gantshill,voice:02034411750
+TEL;TYPE=Whatsapp,voice:+447493727667
+TEL;TYPE=Ilford,voice:+442089116111
+TEL;TYPE=Gantshill,voice:+442034411750
 EMAIL:info@i-cakes.co.uk
 URL:https://i-cakes.co.uk
-ADR;TYPE=Cranbrook:;;51.560035° N, 0.070166° E​
-ADR;TYPE=Gantshill:;;51.577858° N​, 0.065494° E
+ADR;TYPE=Cranbrook:;;40 Cranbrook Road;Ilford;;IG1 4NF;UK
+item1.URL:https://maps.app.goo.gl/cfpLR1v4rkurVc4T8
+ADR;TYPE=Gants Hill:;;22A Woodford Ave;Gants Hill;Ilford;IG2 6XG;UK
+item2.URL:https://maps.app.goo.gl/3wBRMAT8xdTXXUfR8
 X-SOCIALPROFILE;TYPE=Facebook:https://www.facebook.com/icakeslondon
 X-SOCIALPROFILE;TYPE=Instagram:https://www.instagram.com/icakeslondon
 END:VCARD`;
