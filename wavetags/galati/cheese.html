@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galati Cheese Company - Digital Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="galati_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-yellow-50 to-yellow-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white max-w-sm w-full overflow-hidden shadow-2xl p-6 text-center relative">
+        <!-- QR Code -->
+        <div id="qr-code" class="absolute top-4 right-4 w-12 h-12"></div>
+
+        <!-- Header with Background and Logo -->
+        <div class="relative">
+            <img class="w-full h-50 object-cover rounded-lg" src="cover.jpg" alt="Background"> 
+            
+            <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 rounded-lg bg-white p-2 shadow-lg">
+                <img class="w-50 h-15 object-cover rounded-lg" src="galati_logo.png" alt="Femto3D Logo">
+            </div>
+
+        </div>
+
+        <!-- Company Name -->
+        <div class="mt-12">
+            <h1 class="text-2xl font-bold text-gray-900">Galati Cheese Company</h1>
+            <p class="text-gray-500 text-sm">Est. Windsor, Ontario</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-6 border-t pt-4">
+        <button class="w-full bg-[#e03a3e] hover:bg-[#c73034] text-white py-2 rounded-lg mb-2 transition" onclick="downloadVCard()">ADD TO CONTACTS</button>
+        <a href="YOUR_GOOGLE_REVIEW_LINK_HERE" target="_blank" class="w-full bg-[#e03a3e] hover:bg-[#c73034] text-white py-2 rounded-lg mb-2 transition text-center block">LEAVE US A REVIEW</a>
+        <button class="w-full bg-gray-700 hover:bg-gray-800 text-white py-2 rounded-lg transition" onclick="shareCard()">SHARE</button>
+        </div>
+
+
+
+        <!-- Contact Icons -->
+        <div class="grid grid-cols-3 gap-3 mt-6 text-sm text-gray-700">
+            <a href="mailto:sales@galaticheese.com" class="flex flex-col items-center hover:text-yellow-600"><i class="fas fa-envelope text-xl"></i>Email</a>
+            <a href="tel:5192584110" class="flex flex-col items-center hover:text-green-600"><i class="fas fa-phone text-xl"></i>Orders</a>
+            <a href="tel:5199737510" class="flex flex-col items-center hover:text-green-600"><i class="fas fa-phone text-xl"></i>Office</a>
+        </div>
+
+        <!-- Address -->
+        <div class="mt-6 text-gray-700 text-sm">
+            <p>925 Tecumseh Rd W,<br><strong>Windsor, ON, N8X 2A9</strong><br>Canada</p>
+            <p class="mt-1 italic text-xs">Retail store is across the lot from our manufacturing site.</p>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="mt-6 border-t pt-4 text-sm text-gray-700">
+            <h3 class="text-lg font-semibold text-gray-800">Business Hours</h3>
+            <p>Mon–Fri: 9:00am – 4:00pm<br>
+               Saturday: 8:30am – 1:00pm<br>
+               Sunday: Closed<br>
+               <span class="italic text-xs">* Hours vary on holidays. Call to confirm.</span>
+            </p>
+        </div>
+
+        <!-- About Section -->
+        <div class="mt-6 border-t pt-4 text-gray-700 text-sm">
+            <h3 class="text-lg font-semibold text-gray-800">About Us</h3>
+            <p>One slice is never enough when you choose Galati cheese for your pizza!</p>
+        </div>
+
+        <!-- Our Products -->
+        <div class="mt-6 border-t pt-4">
+            <h3 class="text-lg font-semibold text-gray-800">Our Products</h3>
+            <div class="mt-4 flex space-x-4 overflow-x-auto scrollbar-hide" id="productCarousel">
+                <!-- Add product images here -->
+                <img src="mozz2.png" alt="Cheese Product 2" style="width:80%; height:80%;">
+                <img src="mozz1.png" alt="Cheese Product 1" style="width:80%; height:80%;">
+                <img src="mozz3.png" alt="Cheese Product 3" style="width:80%; height:80%;">
+                <img src="product1.png" alt="Cheese Product 1" style="width:80%; height:80%;">
+                <img src="product2.png" alt="Cheese Product 2" style="width:80%; height:80%;">
+                <img src="product3.png" alt="Cheese Product 3" style="width:80%; height:80%;">
+            </div>
+        </div>
+
+        <!-- Powered by -->
+        <div class="pt-4 text-center">
+            <p class="text-gray-600 text-sm">Powered by 
+                <a href="https://www.femto3d.ca" target="_blank" class="text-blue-600 font-semibold hover:underline">
+                    femto3d.ca
+                </a>
+            </p>
+            </div>
+    </div>
+
+    <script>
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:;Galati;;;
+ORG:Galati Cheese Company
+TEL;TYPE=voice:5192584110
+TEL;TYPE=voice:5199737510
+EMAIL:sales@galaticheese.com
+ADR:;;925 Tecumseh Rd W;Windsor;ON;N8X 2A9;Canada
+URL:https://www.galaticheese.com
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'GalatiCheese.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Galati Cheese Company',
+                    text: 'Check out Galati Cheese Company – your source for premium cheese.',
+                    url: window.location.href
+                }).catch(err => console.log('Sharing failed', err));
+            } else {
+                alert('Sharing not supported on this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
