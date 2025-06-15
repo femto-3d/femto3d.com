@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Briyani & Grill - Digital Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
+</head>
+<body class="bg-gradient-to-r from-yellow-100 to-red-100 flex justify-center items-center min-h-screen">
+  <div class="bg-white max-w-sm w-full shadow-2xl p-6 text-center relative rounded-lg">
+    <!-- QR Code -->
+    <div id="qr-code" class="absolute top-4 right-4 w-12 h-12"></div>
+
+    <!-- Header -->
+    <div class="relative">
+      <img class="w-full h-40 object-cover rounded-lg" src="cover.jpg" alt="Restaurant Cover Image" />
+      
+            <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 rounded-lg bg-white p-1 shadow-lg">
+                <img class="w-50 h-15 object-cover rounded-lg" src="logo.jpg" alt="Femto3D Logo">
+            </div>
+    </div>
+
+    <!-- Restaurant Info -->
+    <div class="mt-12">
+      <h1 class="text-2xl font-bold text-gray-900">Briyani & Grill</h1>
+      <p class="text-red-500 text-sm">Fine Indian and Pakistani Cuisine</p>
+      <p class="text-green-600 text-xs mt-1">Hand Slaughtered Halal</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-6 border-t pt-4">
+      <button class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg mb-2 transition" onclick="downloadVCard()">ADD TO CONTACTS</button>
+
+      <a href="https://maps.app.goo.gl/2CCs68Rvzkkq3KiW6?g_st=com.google.maps.preview.copy" target="_blank">
+        <button class="w-full bg-gray-800 hover:bg-black text-white py-2 rounded-lg mb-2 transition">Find us on Google Maps</button>
+      </a>
+
+      <button class="w-full bg-gray-700 hover:bg-gray-800 text-white py-2 rounded-lg transition" onclick="shareCard()">SHARE</button>
+    </div>
+
+    <!-- Contact Icons -->
+    <div class="grid grid-cols-3 gap-3 mt-6 text-sm text-gray-700">
+      <a href="https://www.instagram.com" target="_blank" class="flex flex-col items-center hover:text-pink-600"><i class="fab fa-instagram text-3xl"></i> Instagram</a>
+      <a href="https://maps.app.goo.gl/2CCs68Rvzkkq3KiW6?g_st=com.google.maps.preview.copy" target="_blank" class="flex flex-col items-center hover:text-green-600"><i class="fa-solid fa-location-dot text-3xl"></i> Maps</a>
+      <a href="https://biryani-grill.com" target="_blank" class="flex flex-col items-center hover:text-blue-500"><i class="fa-solid fa-globe text-3xl"></i> Website</a>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="mt-6 text-gray-700 text-sm">
+      <p><strong>325 Wyandotte St W,</strong><br>Windsor, ON N9A 5X3</p><br>
+      <a href="tel:+12662219888" class="flex flex-col items-center hover:text-green-500">Call: 266 221 9888</a>
+    </div>
+
+    <!-- About -->
+    <div class="mt-6 text-gray-700 text-sm border-t pt-4">
+      <h3 class="text-lg font-semibold text-gray-800">Opening Hours</h3>
+      <p>Mon – Fri: 11:00 AM – 9:00 PM<br>Sat: 10:00 AM – 10:00 PM<br>Sun: 10:00 AM – 9:00 PM</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="pt-4 text-center">
+      <p class="text-gray-600 text-sm">Powered by 
+        <a href="https://www.femto3d.ca" target="_blank" class="text-blue-600 font-semibold hover:underline">femto3d.ca</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function downloadVCard() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:;Briyani & Grill;;;
+ORG:Briyani & Grill
+TEL;TYPE=voice:2662219888
+URL:https://biryani-grill.com
+ADR;TYPE=work:;;325 Wyandotte St W;Windsor;ON;N9A 5X3;Canada
+END:VCARD`;
+
+      const blob = new Blob([vCardData], { type: 'text/vcard' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Briyani_Grill.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function shareCard() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Briyani & Grill - Digital Card',
+          text: 'Check out Briyani & Grill – Fine Indian and Pakistani Cuisine.',
+          url: window.location.href
+        }).catch(err => console.log('Sharing failed', err));
+      } else {
+        alert('Sharing not supported on this browser.');
+      }
+    }
+  </script>
+</body>
+</html>
