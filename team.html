@@ -1,93 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team</title>
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive CSS -->
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Add your favicon -->
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
-  <link rel="icon" href="logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team | Femto 3D</title>
 
+<link rel="icon" href="logo.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+/* ===== Femto 3D Theme ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b0f14;
+    color: #e5e7eb;
+}
+
+/* ===== Section ===== */
+.team-section {
+    padding: 80px 8%;
+    background: linear-gradient(to bottom, #0b0f14, #111827);
+}
+
+.team-head-text {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* ===== Grid ===== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* ===== Card ===== */
+.team-card {
+    background: #111827;
+    border-radius: 18px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid #1f2933;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: #2563eb;
+    box-shadow: 0 18px 50px rgba(37,99,235,0.3);
+}
+
+/* ===== Image ===== */
+.team-image-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #2563eb;
+}
+
+.team-member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Text ===== */
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.position {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 14px;
+}
+
+.feature-text {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: #9ca3af;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3b82f6;
+    transform: scale(1.2);
+}
+
+.header {
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b0f14;
+    border-bottom: 1px solid #1f2933;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #3b82f6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .team-head-text {
+        font-size: 30px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="responsive-container-block container">
-        <p class="text-blk team-head-text">
-          Our Team
-        </p>
-        
-    
-        <div class="responsive-container-block">
-          <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-            <div class="card">
-              <div class="team-image-wrapper">
-                <img class="team-member-image" src="images/team/abdulfazil.png">
-              </div>
-              <p class="text-blk name">
-                Abdul Fazil A
-              </p>
-              <p class="text-blk position">
-                Founder (Currently Pursuing Advanced Studies)
-              </p>
-              <p class="text-blk feature-text">
-                Abdul Fazil, the visionary founder of Femto 3D, laid the foundation for innovation in 3D printing and design. Now pursuing a master’s in Electronics and Computer Engineering in Canada, he continues to inspire the team with his passion and forward-thinking leadership.
-              </p>
-              <div class="social-icons">
-                <!-- <a href="https://www.facebook.com/connectfazil" target="_blank">
-                  <i class="fa fa-facebook"></i></a>
-                </a> -->
-                <!-- <a href="https://www.linkedin.com/in/reachmuhsin/" target="_blank">
-                  <i class="fa fa-linkedin"></i></a>
-                </a> -->
-                <a href="https://www.instagram.com/connectfazil/" target="_blank">
-                  <i class="fa fa-instagram"></i></a>
-                </a>
-                <a href="https://wa.me/+14377074889" target="_blank">
-                  <i class="fa fa-whatsapp"></i>
-                </a>
-              </div>
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">Femto<span>3D</span></div>
+</div>
+
+<section class="team-section">
+    <p class="team-head-text">Our Team</p>
+
+    <div class="team-grid">
+
+        <!-- Abdul Fazil -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/abdulfazil.png" alt="Abdul Fazil">
             </div>
-          </div>
-          <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-            <div class="card">
-              <div class="team-image-wrapper">
-                <img class="team-member-image" src="images/team/abdulmuhsin.png">
-              </div>
-              <p class="text-blk name">
-                Abdul Muhsin A
-              </p>
-              <p class="text-blk position">
-                Managing Director
-              </p>
-              <p class="text-blk feature-text">
-                Abdul Muhsin leads Femto 3D with a visionary approach, driving the company to new heights in 3D printing and design. With expertise in 3D designing, material science, and rapid prototyping, he ensures every project exceeds expectations. Dedicated to innovation and client satisfaction, Abdul Muhsin transforms ideas into tangible, high-quality solutions.
-              </p>
-              <div class="social-icons">
-                <a href="https://www.facebook.com/muhsinnetwork" target="_blank">
-                  <i class="fa fa-facebook"></i></a>
-                </a>
-                <a href="https://www.linkedin.com/in/reachmuhsin/" target="_blank">
-                  <i class="fa fa-linkedin"></i></a>
-                </a>
-                <a href="https://www.instagram.com/reachmuhsin/" target="_blank">
-                  <i class="fa fa-instagram"></i></a>
-                </a>
-                <a href="https://wa.me/+919087344274" target="_blank">
-                  <i class="fa fa-whatsapp"></i>
-                </a>
-                 
-                
-  
-              </div>
+            <p class="name">Abdul Fazil A</p>
+            <p class="position">Founder (Advanced Studies)</p>
+            <p class="feature-text">
+                Abdul Fazil, the visionary founder of Femto 3D, laid the foundation for innovation in 3D printing and design.
+                Currently pursuing a master’s in Electronics and Computer Engineering in Canada, he continues to inspire the
+                team with forward-thinking leadership.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
             </div>
-          </div>
-        
-  <!-- Optional JavaScript -->
-  <script src="js/script.js"></script>
+        </div>
+
+        <!-- Abdul Muhsin -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/abdulmuhsin.jpg" alt="Abdul Muhsin">
+            </div>
+            <p class="name">Abdul Muhsin A</p>
+            <p class="position">Managing Director</p>
+            <p class="feature-text">
+                Abdul Muhsin leads Femto 3D with a visionary approach, driving excellence in 3D printing and rapid prototyping.
+                With expertise in design and material science, he transforms ideas into high-quality engineering solutions.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/muhsinnetwork" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/reachmuhsin/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/muhsinnetwork/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+919087344274" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
