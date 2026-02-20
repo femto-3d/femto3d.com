@@ -1,1 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team | Femto 3D</title>
 
+<link rel="icon" href="logo.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+/* ===== Femto 3D Theme ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b0f14;
+    color: #e5e7eb;
+}
+
+/* ===== Section ===== */
+.team-section {
+    padding: 80px 8%;
+    background: linear-gradient(to bottom, #0b0f14, #111827);
+}
+
+.team-head-text {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.team-description {
+    max-width: 900px;
+    margin: 20px auto 60px;
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #cbd5e1; /* soft light text for dark background */
+    opacity: 0.95;
+}
+
+/* Slight glow effect for premium feel */
+.team-description::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 25px auto 0;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    border-radius: 10px;
+}
+
+
+/* ===== Grid ===== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* ===== Card ===== */
+.team-card {
+    background: #111827;
+    border-radius: 18px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid #1f2933;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: #2563eb;
+    box-shadow: 0 18px 50px rgba(37,99,235,0.3);
+}
+
+/* ===== Image ===== */
+.team-image-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #2563eb;
+}
+
+.team-member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Text ===== */
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.position {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 14px;
+}
+
+.feature-text {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: #9ca3af;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3b82f6;
+    transform: scale(1.2);
+}
+
+.header {
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b0f14;
+    border-bottom: 1px solid #1f2933;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #3b82f6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .team-head-text {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">Femto<span>3D</span></div>
+</div>
+
+<section class="team-section">
+    <p class="team-head-text">Our Team</p>
+
+    <p class="team-description">
+        At Femto 3D, our team is a diverse group of engineers, designers, and technology specialists driven by innovation and excellence.
+        We combine expertise in 3D printing, web development, graphic design, and IT solutions to deliver smart, high-quality results for every project.
+        With strong leadership and a collaborative culture, we transform ideas into reliable, scalable, and impactful solutions for businesses worldwide.
+    </p>
+
+    <div class="team-grid">
+
+        <!-- Abdul Fazil -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/abdulfazil.webp" alt="Abdul Fazil">
+            </div>
+            <p class="name">Abdul Fazil A</p>
+            <p class="position">Founder (Advanced Studies)</p>
+            <p class="feature-text">
+                Abdul Fazil, the visionary founder of Femto 3D, laid the foundation for innovation in 3D printing and design.
+                Currently pursuing a master’s in Electronics and Computer Engineering in Canada, he continues to inspire the
+                team with forward-thinking leadership.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Abdul Muhsin -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/abdulmuhsin.webp" alt="Abdul Muhsin">
+            </div>
+            <p class="name">Abdul Muhsin A</p>
+            <p class="position">Managing Director</p>
+            <p class="feature-text">
+                Abdul Muhsin leads Femto 3D with a visionary approach, driving excellence in 3D printing and rapid prototyping.
+                With expertise in design and material science, he transforms ideas into high-quality engineering solutions.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/muhsinnetwork" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/reachmuhsin/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/muhsinnetwork/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+919087344274" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Daniel Thompson — Business Development & Partnerships Manager -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/danielthompson.webp" alt="Daniel Thompson">
+            </div>
+            <p class="name">Daniel Thompson</p>
+            <p class="position">Business Development & Partnerships Manager</p>
+            <p class="feature-text">
+                Daniel Thompson brings extensive experience in business development and strategic partnerships to Femto 3D.
+                His expertise in identifying new opportunities and building strong client relationships has been instrumental in expanding our reach and impact.
+            </p>
+            <!-- <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div> -->
+        </div>
+
+        <!-- Suresh Balaji — Creative Director (Graphic & UI/UX) -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/sureshbalaji.webp" alt="Suresh Balaji">
+            </div>
+            <p class="name">Suresh Balaji</p>
+            <p class="position">Creative Director (Graphic & UI/UX)</p>
+            <p class="feature-text">
+                Suresh Balaji is the creative force behind Femto 3D's visual identity and user experience.
+                His expertise in graphic design and UI/UX development ensures that our products are not only functional but also aesthetically pleasing and user-friendly.
+            </p>
+            <!-- <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div> -->
+        </div>
+
+        <!-- Vinoth Kumar — Web & IT Solutions Engineer -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/vinothkumar.webp" alt="Vinoth Kumar">
+            </div>
+            <p class="name">Vinoth Kumar</p>
+            <p class="position">Web & IT Solutions Engineer</p>
+            <p class="feature-text">
+                Vinoth Kumar is responsible for developing and maintaining our web and IT infrastructure.
+                His technical expertise ensures that our systems are robust, scalable, and secure.
+            </p>
+            <!-- <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div> -->
+        </div>
+
+        <!-- Ayaan Rahman — Technical Solutions & Support Engineer-->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/ayaanrahman.webp" alt="Ayaan Rahman">
+            </div>
+            <p class="name">Ayaan Rahman</p>
+            <p class="position">Technical Solutions & Support Engineer</p>
+            <p class="feature-text">
+                Ayaan Rahman is responsible for providing technical support and solutions to our clients.
+                His expertise in troubleshooting and system optimization ensures that our clients receive seamless and efficient service.
+            </p>
+            <!-- <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div> -->
+        </div>
+
+        <!-- Arun Prakash — Lead 3D Design Engineer -->
+        <div class="team-card">
+            <div class="team-image-wrapper">
+                <img class="team-member-image" src="images/team/arunprakash.webp" alt="Arun Prakash">
+            </div>
+            <p class="name">Arun Prakash</p>
+            <p class="position">Lead 3D Design Engineer</p>
+            <p class="feature-text">
+                Arun Prakash is the lead 3D design engineer at Femto 3D.
+                His expertise in 3D modeling and design ensures that our products are visually stunning and technically accurate.
+            </p>
+            <!-- <div class="social-icons">
+                <a href="https://www.instagram.com/connectfazil/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+14377074889" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div> -->
+        </div>
+
+       
+
+    </div>
+</section>
+
+
+    <!-- Start of OpenWidget (www.openwidget.com) code -->
+<script>
+  window.__ow = window.__ow || {};
+  window.__ow.organizationId = "68ae3c75-db8a-4d08-a1d0-69bb73798bd1";
+  window.__ow.integration_name = "manual_settings";
+  window.__ow.product_name = "openwidget";   
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+</script>
+<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
+<!-- End of OpenWidget code -->
+
+</body>
+</html>
