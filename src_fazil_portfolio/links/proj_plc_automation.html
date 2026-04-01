@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allen-Bradley PLC Industrial Automation — Abdul Fazil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .text-gradient { background-image: linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .tag { display:inline-block; background:rgba(59,130,246,0.15); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); border-radius:9999px; padding:2px 12px; font-size:0.75rem; margin:2px; }
+    .step-num { background:#1d4ed8; color:white; border-radius:9999px; width:2rem; height:2rem; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:0.875rem; flex-shrink:0; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Nav -->
+<nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+  <a href="../../af.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2">← Back to Portfolio</a>
+  <span class="text-gray-500 text-sm">Abdul Fazil — Project Detail</span>
+</nav>
+
+<!-- Hero -->
+<div class="pt-20">
+  <div class="relative h-72 md:h-96 overflow-hidden bg-gradient-to-r from-indigo-900 to-purple-900">
+    <div class="absolute inset-0 opacity-20">
+      <svg class="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <circle cx="200" cy="150" r="80" fill="currentColor" opacity="0.3"/>
+        <circle cx="1000" cy="450" r="100" fill="currentColor" opacity="0.2"/>
+        <line x1="100" y1="300" x2="1100" y2="300" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+      </svg>
+    </div>
+    <div class="absolute bottom-8 left-8 right-8 relative z-10">
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">Ladder Logic</span>
+        <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Safety-Critical</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white">Allen-Bradley PLC Automation<br><span class="text-2xl md:text-3xl text-gray-300 font-medium">Industrial Control Systems &amp; Ladder Logic Programming</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2 mb-10">
+    <span class="tag">Allen-Bradley PLC</span><span class="tag">Ladder Logic</span><span class="tag">RSLogix Studio 5000</span><span class="tag">HMI Design</span><span class="tag">Pneumatic Control</span><span class="tag">Solenoid Valves</span><span class="tag">Safety Interlocks</span><span class="tag">IEC 62061</span><span class="tag">Timer/Counter Logic</span><span class="tag">Process Simulation</span>
+  </div>
+
+  <!-- Overview -->
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="md:col-span-2">
+      <h2 class="text-2xl font-bold text-gradient mb-4">Project Overview</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        A comprehensive study and implementation of industrial PLC programming using Allen-Bradley PLCs and RSLogix Studio 5000 IDE. This portfolio includes multiple production-grade automation programs demonstrating core competencies in ladder logic, safety interlocks, HMI integration, and real-time process control.
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        The projects span: (1) multi-zone conveyor belt control with jam detection, (2) sequential motor startup with fault handling, (3) ISO 13849 safety-rated light curtain interlocks, (4) pneumatic actuator sequencing with position feedback, (5) batch counting and product tracking, and (6) HMI dashboard design for operator visualization. All programs are simulated in RSLogix Studio 5000 Logix Designer with validated logic before deployment.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        Key achievement: <strong class="text-yellow-400">All projects follow IEC 62061 & ISO 13849 safety standards</strong> for machinery control systems. Demonstrated understanding of real-world manufacturing automation used by Fortune 500 suppliers (Stellantis, Ford, GM) and Tier-1 automation integrators (Rockwell, Siemens, Bosch Rexroth).
+      </p>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Timeline</div>
+        <p class="text-white font-medium">2023 – 2024</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Projects</div>
+        <p class="text-white font-medium">6 complete control systems</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Standards</div>
+        <p class="text-orange-400 font-medium">IEC 62061 · ISO 13849</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Target Industries</div>
+        <p class="text-gray-300 text-sm">Automation · Manufacturing · Robotics</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Architecture -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">PLC System Architecture</h2>
+    <div class="grid md:grid-cols-4 gap-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">⚙️</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Control Logic</div>
+        <p class="text-gray-400 text-xs">Ladder logic rungs for process sequencing, motor control, solenoid actuation</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🛡️</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Safety Layer</div>
+        <p class="text-gray-400 text-xs">E-STOP logic, light curtain interlocks, safety-rated shutdown sequences</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">⏱️</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Timing &amp; Sequencing</div>
+        <p class="text-gray-400 text-xs">Timer blocks (TON/TOF), counters for cycle control and product tracking</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">📊</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">HMI Integration</div>
+        <p class="text-gray-400 text-xs">RSView HMI with real-time status, fault alerts, operator controls</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Was Built -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Projects Built — Step by Step</h2>
+    <div class="space-y-6">
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Conveyor Belt Control System — Multi-Zone Management</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Designed a PLC program to control a 3-zone industrial conveyor with start/stop pushbuttons, variable speed control output (0–100% PWM to VFD), and automatic jam detection via load current sensors on each zone. Implemented timers for belt acceleration/deceleration ramps (5-second soft start to prevent product spillage). Configured solenoid valve output for pneumatic brake release. Emergency Stop (E-STOP) circuit follows IEC 62061 PLd (Performance Level d) standards — pressing E-STOP immediately de-energizes all motor contacts and applies the pneumatic brake within 500ms. Used ladder logic blocks: timers (TON/TOF), compare instructions for speed setpoint logic, and a shift register to track product passage across zones. HMI displays real-time belt speed, load current per zone, and jam alerts with zone identification.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Motor Start/Stop Sequencing — Multi-Motor Synchronization</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Developed a PLC control program for a three-motor system (pump, compressor, post-process fan) with mandatory sequential startup. When the "Start" button is pressed in AUTO mode, Motor 1 (pump) runs for 2 seconds before Motor 2 (compressor) is energized; Motor 3 (fan) energizes only after Motor 2 has been stable for 3 seconds. This startup sequence prevents inrush current spikes and cascading pressure surges. Implemented manual mode where each motor can be individually controlled via discrete pushbuttons. Fault detection: each motor has an overload current sensor; if current exceeds threshold for &gt;2 seconds, the motor is de-energized and a fault indicator lights on HMI. Recovery requires operator acknowledgment (press "Fault Reset" button) and manual motor restart. Ladder logic uses interlocked timer blocks to enforce the 2–3 second delays.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Safety Interlock System — Light Curtain Integration (ISO 13849)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Implemented a safety-certified interlock program for a guarded machine access area using a light curtain (photoelectric safety sensor). The control logic follows ISO 13849-1 PLr (Performance Level "c") standards. When the light curtain beam is broken (intruder in guarded zone), the PLC immediately commands: (1) stop all moving axes within 200ms, (2) actuate safety solenoid to lock access gate, (3) illuminate red warning beacon, (4) log the intrusion event with timestamp. Light curtain signal is wired to the PLC's safety input module (redundant dual-channel contact). Re-enabling machine operation requires both: (1) light curtain beam restoration (clear zone), AND (2) operator pressing a mandatory reset button. Used safety-rated contacts (series redundancy) in the E-STOP circuit to meet PLr certification. Documented all interlock logic with cross-references to ISO 13849 safety categories.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Pneumatic Actuator Control — Double-Acting Cylinder Sequencing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Programmed PLC control for double-acting pneumatic cylinders with solenoid valve actuation and end-of-stroke confirmation. The system controls a 4-cylinder assembly operation: (1) extend cylinder A (solenoid A energized), wait for "fully extended" proximity sensor feedback, (2) extend cylinder B (while A held), confirm with sensor, (3) retract B, confirm sensor, (4) retract A, confirm sensor. Each cylinder stage has a 5-second timeout — if expected sensor signal doesn't arrive within timeout, the system aborts, logs a fault, and returns all cylinders to the home position. Used ladder logic with latched outputs for solenoid control, timer-based timeout logic, and state machine rungs to enforce strict sequencing. Implemented manual jog controls (override mode) for setup/maintenance where operators can manually extend/retract each cylinder while monitoring sensor feedback on the HMI.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">5</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Process Timer/Counter Logic — Batch Production &amp; Tracking</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Designed a batch counting and product tracking system using PLC counter blocks and shift registers. When a "Product Present" sensor detects an item at the conveyor entry, a counter is incremented. Simultaneously, a shift register stores the product count at each of 5 downstream stations (assembly, test, packaging, QC, shipping). At each station, when the product count reaches a predefined batch size (e.g., 50 units), the PLC: (1) logs the batch number, (2) signals the solenoid to eject the full batch into a collection bin, (3) resets the counter, (4) starts a new batch cycle. The shift register allows the PLC to track which batch is currently at each station — enabling real-time production timeline visualization on the HMI (e.g., "Batch #127 is currently in assembly, Batch #126 in QC, Batch #125 in shipping"). Implemented with compare blocks to detect batch boundaries and one-shot triggers to prevent double-counting.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">6</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">HMI Design &amp; Operator Interface — RSView</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Built an intuitive HMI dashboard in RSView (Rockwell's SCADA software) that displays: real-time status indicators (running/stopped/fault), animated process visualization (conveyor belt speed, motor states, solenoid actuation), fault message log with timestamps, production count display, and manual control buttons (start, stop, emergency stop, fault reset, manual jog). Implemented color-coded status: green (running), yellow (caution/slow), red (fault/stopped). The HMI connects to the PLC via Ethernet and updates every 500ms. Designed the interface to match industrial ergonomics standards — large buttons for safety-critical controls, clear font sizes for readability from 2+ meters distance. Tested the HMI with simulated PLC faults to verify alarm display and operator response paths.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">7</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Simulation, Validation &amp; Documentation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Simulated all PLC programs in RSLogix Studio 5000 Logix Designer before deployment. Used the built-in simulator to inject test inputs (button presses, sensor transitions) and verify outputs (solenoid actuation, motor commands) respond correctly. Tested edge cases: E-STOP during various operation states, sensor failures (missing expected feedback), intentional faults (overcurrent), and recovery sequences. For each program, created detailed documentation: (1) I/O tag list (all inputs and outputs with descriptions), (2) ladder diagram printouts with rung comments, (3) safety analysis per ISO 13849, (4) operation manual for technicians. All programs passed 100-hour continuous simulation without lockups or unexpected behavior.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Key Results -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Key Achievements &amp; Standards Compliance</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-orange-400 mb-2">6</div>
+        <p class="text-gray-400 text-sm">Complete control systems designed &amp; simulated</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-yellow-400 mb-2">ISO</div>
+        <p class="text-gray-400 text-sm">13849 PLr c compliance for all safety-critical systems</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-2">100h</div>
+        <p class="text-gray-400 text-sm">Continuous simulation without errors</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Relevance to Chip/Automation Companies -->
+  <div class="mb-12 bg-blue-900/20 rounded-2xl p-6 border border-blue-800/40">
+    <h2 class="text-xl font-bold text-blue-400 mb-4">Relevance to Chip Design, Semiconductor &amp; Automation Industries</h2>
+    <ul class="space-y-2 text-gray-300 text-sm">
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>PLC Programming — Industry Standard</strong> — Ladder logic is the foundational skill for all automation engineer roles. Allen-Bradley PLCs dominate Fortune 500 manufacturing (Ford, Stellantis, GM, pharmaceutical fabs). Understanding PLC architecture is directly applicable to test automation, process control, and factory floor roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Safety-Critical Systems (IEC/ISO Standards)</strong> — Understanding ISO 13849 and IEC 62061 safety design patterns is critical for automotive (ISO 26262), medical device, and industrial machinery roles. Demonstrates ability to architect fault-tolerant systems.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Real-Time Sequencing &amp; State Machines</strong> — PLC timer/counter logic and sequential control patterns directly translate to RTOS firmware development, embedded state machine design, and real-time scheduling — essential for Embedded Systems Engineer roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>HMI/Operator Interface Design</strong> — Experience with SCADA dashboards and real-time visualization shows ability to design human-machine interfaces for complex systems — applicable to robotics, test equipment, and industrial systems roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Sensor Integration &amp; I/O Handling</strong> — Multi-sensor data acquisition, feedback loops, and discrete I/O control (solenoids, motor contactors) — the same patterns used in embedded firmware for automated test equipment (ATE), industrial robotics, and factory automation at chip companies.</li>
+    </ul>
+  </div>
+
+  <!-- Back -->
+  <div class="flex justify-center">
+    <a href="../../af.html" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full transition-colors">← Back to Portfolio</a>
+  </div>
+</div>
+
+<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-800 mt-12">
+  &copy; 2025 Abdul Fazil Abdul Salam &nbsp;·&nbsp; mailtofazilfz@gmail.com
+</footer>
+</body>
+</html>

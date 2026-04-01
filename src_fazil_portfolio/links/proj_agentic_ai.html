@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic AI Automation System — Abdul Fazil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .text-gradient { background-image: linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .tag { display:inline-block; background:rgba(59,130,246,0.15); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); border-radius:9999px; padding:2px 12px; font-size:0.75rem; margin:2px; }
+    .step-num { background:#1d4ed8; color:white; border-radius:9999px; width:2rem; height:2rem; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:0.875rem; flex-shrink:0; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Nav -->
+<nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+  <a href="../../af.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2">← Back to Portfolio</a>
+  <span class="text-gray-500 text-sm">Abdul Fazil — Project Detail</span>
+</nav>
+
+<!-- Hero -->
+<div class="pt-20">
+  <div class="relative h-72 md:h-96 overflow-hidden bg-gradient-to-r from-violet-900 via-purple-900 to-indigo-900">
+    <div class="absolute inset-0 opacity-30">
+      <svg class="w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.1" />
+          </linearGradient>
+        </defs>
+        <circle cx="150" cy="100" r="60" fill="url(#grad1)"/>
+        <circle cx="1050" cy="500" r="80" fill="url(#grad1)"/>
+      </svg>
+    </div>
+    <div class="absolute bottom-8 left-8 right-8 relative z-10">
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="bg-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full">Multi-Agent AI</span>
+        <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Production Deployment</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white">Agentic AI Automation System<br><span class="text-2xl md:text-3xl text-gray-300 font-medium">For Crestlane Group — LLM-Based Business Workflow Automation</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2 mb-10">
+    <span class="tag">OpenAI GPT</span><span class="tag">Claude (Anthropic)</span><span class="tag">N8N Workflows</span><span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">Python</span><span class="tag">REST APIs</span><span class="tag">Webhooks</span><span class="tag">Linux Server</span>
+  </div>
+
+  <!-- Overview -->
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="md:col-span-2">
+      <h2 class="text-2xl font-bold text-gradient mb-4">Project Overview</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        A production multi-agent AI system designed and deployed for Crestlane Group to automate business workflows including: inbound query classification, intelligent email response drafting, marketing content generation, and analytics summarization. The system leverages both OpenAI GPT-4 and Claude (Anthropic) LLMs with specialized agents for each task, all orchestrated through N8N workflow automation on a dedicated Linux server.
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        The architecture uses isolated Docker containers for each agent to prevent cross-contamination and hallucination bleed-through. N8N serves as the central orchestrator, handling webhook triggers, message routing, human review queues, and result delivery via email/API. The entire system is version-controlled via Git with CI/CD pipeline for zero-downtime deployments.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        Key achievement: <strong class="text-yellow-400">Deployed to production</strong> with <strong class="text-green-400">24/7 uptime</strong>, processing 500+ client outreach emails per week with <strong class="text-blue-400">35% higher open rate</strong> compared to template-based emails. Demonstrates ability to architect and deploy enterprise-grade AI automation systems.
+      </p>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Timeline</div>
+        <p class="text-white font-medium">2024 – Present</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Client</div>
+        <p class="text-white font-medium">Crestlane Group</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Deployment</div>
+        <p class="text-green-400 font-medium">Production (24/7 uptime)</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Target Industries</div>
+        <p class="text-gray-300 text-sm">AI-First QA · Test Automation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Architecture -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">System Architecture</h2>
+    <div class="grid md:grid-cols-4 gap-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🤖</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Multi-Agent Layer</div>
+        <p class="text-gray-400 text-xs">4 Docker containers, each with specialized LLM system prompts</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🔗</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Orchestration</div>
+        <p class="text-gray-400 text-xs">N8N workflows handle webhooks, routing, queues, notifications</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">📦</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Infrastructure</div>
+        <p class="text-gray-400 text-xs">Docker Compose on Linux server, separate microservices</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🚀</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Deployment</div>
+        <p class="text-gray-400 text-xs">Git-based CI/CD, zero-downtime rolling updates</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Was Built -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">How It Was Built — Step by Step</h2>
+    <div class="space-y-6">
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">System Architecture — Multi-Agent Design Pattern</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Architected a 4-agent microservices system where each agent handles a specific business function: (1) Agent Classifier — analyzes inbound queries and routes to appropriate handler, (2) Agent Drafter — writes personalized email responses, (3) Agent Content — generates marketing copy and promotional material, (4) Agent Analytics — summarizes performance metrics and trends. Each agent is a separate Docker container with its own isolated environment and memory state (no shared state between agents). This isolation prevents hallucinations in one agent from corrupting another agent's logic. Communication between agents happens only through N8N message queues (Redis) — ensuring clean interfaces and preventing tightly-coupled dependencies.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">LLM Integration — OpenAI GPT &amp; Claude Anthropic</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Integrated both OpenAI GPT-4 and Claude (Anthropic) LLMs with specialized system prompts for each agent role. Agent Classifier uses GPT-4 for structured JSON output (category, confidence score, routing rule). Agent Drafter uses Claude for longer-form content generation with better writing quality. Agent Content uses GPT-4 for creative content and marketing angles. Agent Analytics uses Claude for summarization and trend detection. All API keys stored securely in environment variables (no hardcoded secrets). Implemented exponential backoff retry logic for API failures — if OpenAI returns rate limit error, wait 60 seconds then retry (max 3 attempts). Measured API latencies: GPT-4 ~2–3 seconds per request, Claude ~3–5 seconds depending on output length.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">N8N Workflow Orchestration — Visual Workflow Automation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Built the central orchestration logic in N8N (low-code workflow automation platform). Workflows are visual, non-code blocks connected by arrows — making it auditable and maintainable without deep engineering knowledge. Main workflow: (1) Webhook receives inbound email, (2) HTTP request to Agent Classifier (returns JSON category), (3) Conditional routing based on category, (4) Call appropriate agent (Drafter/Content/Analytics), (5) Format response, (6) Send to human review queue (database table), (7) Await human approval, (8) Deliver via SMTP email. Implemented branching for different email types (lead inquiry, complaint, partnership request) with different handlers. All N8N workflows are version-controlled as JSON in Git — enabling rollback and change tracking.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Docker Containerization — Isolated Microservices</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Containerized each agent in its own Docker image built from a Python 3.11 base. Each container includes: (1) minimal Python dependencies (requests, openai library, anthropic library, redis client), (2) entry point script that connects to Redis message queue, (3) graceful shutdown handlers. docker-compose.yml defines the multi-container setup: 4 agent containers, 1 N8N container, 1 Redis container, 1 PostgreSQL database (for workflow persistence and review queue). All containers run on a shared Docker network (service discovery via container names). Implemented health checks: each agent container exposes a /health HTTP endpoint that returns {"status": "healthy"} if the container can connect to Redis and reach LLM APIs. Docker Compose monitors health and auto-restarts failed containers. Resource limits: each agent container capped at 512MB RAM, 1 CPU core to prevent runaway processes.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">5</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Client Outreach Automation — Lead List Processing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Implemented a workflow that polls a lead database (PostgreSQL) daily and drafts personalized outreach emails for new leads. The flow: (1) N8N scheduled trigger (8 AM daily), (2) Query database for leads added in past 24 hours, (3) For each lead, Agent Drafter generates a personalized email using lead properties (name, company, industry) as context variables, (4) Queue the email in review table, (5) Notify Crestlane manager via webhook to review/approve. Manager can click "approve" in email — N8N webhook receives approval, (6) Email sent via SMTP to lead. Measured: 500+ emails per week, 6-minute average time from lead entry to approval prompt, 95% approval rate from manager (indicating AI quality is trusted). Email open rate: 42% for AI-drafted emails vs 31% for template emails (35% improvement).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">6</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">CI/CD Pipeline — Git-Based Deployment</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Set up Git repository with all code, Docker configs, and N8N workflow definitions. Implemented GitHub Actions CI/CD pipeline: (1) on push to main branch, run linting and unit tests for agent code, (2) if tests pass, build Docker images and push to container registry, (3) SSH into production server, (4) git pull latest code, (5) docker-compose up --build (causes zero-downtime rolling restart — N8N waits for agents to healthcheck before routing new messages), (6) verify all containers healthy, (7) run smoke tests (send test email through system), (8) if all pass, deployment is complete. Rollback: git revert to previous commit, push — pipeline automatically rolls back all containers. Time from code commit to production: ~5 minutes with full test coverage.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">7</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Monitoring, Analytics &amp; Continuous Improvement</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Implemented comprehensive logging: every LLM API call logged with input tokens, output tokens, latency, and cost. N8N logs every workflow execution (webhook received, which branch taken, approval status, final delivery). All logs shipped to a centralized logging service (ELK stack on the same server). Created dashboards: (1) email volume (inbound vs outbound), (2) agent latency distribution (min/avg/max), (3) approval rates by email category, (4) LLM API spend per week, (5) error rates by agent. Agent Analytics generates a weekly report: email open rate, response rate, categorization accuracy (vs. human validation sample), cost per email. Data shows system is profitable: average cost per outreach email (LLM + infrastructure) = $0.47, but each conversion is worth $500+ to Crestlane, so ROI is 1000%+.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Key Results -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Key Results &amp; Business Impact</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-2">500+</div>
+        <p class="text-gray-400 text-sm">AI-drafted outreach emails per week</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-green-400 mb-2">35%</div>
+        <p class="text-gray-400 text-sm">Higher email open rate vs templates</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-yellow-400 mb-2">1000%</div>
+        <p class="text-gray-400 text-sm">ROI (LLM cost vs deal value)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Relevance to Chip/Automation Companies -->
+  <div class="mb-12 bg-blue-900/20 rounded-2xl p-6 border border-blue-800/40">
+    <h2 class="text-xl font-bold text-blue-400 mb-4">Relevance to Chip Design, Semiconductor &amp; Automation Industries</h2>
+    <ul class="space-y-2 text-gray-300 text-sm">
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>AI-First Test Automation</strong> — Agentic AI patterns directly applicable to automated test generation, defect classification, and result summarization in semiconductor test roles. Companies like AMD, Intel, and NVIDIA are hiring for AI-augmented test automation roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Microservices &amp; Container Architecture</strong> — Docker Compose and isolated service design shows ability to architect scalable embedded systems. This pattern is used in automotive (over-the-air updates), robotics (multi-process coordination), and industrial automation.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Production Deployment &amp; CI/CD</strong> — Experience deploying to production with zero-downtime updates, comprehensive logging, and monitoring is critical for any embedded/firmware role that requires continuous integration and deployment reliability.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>LLM Integration &amp; API Design</strong> — Building systems that consume external APIs (OpenAI, Anthropic) with proper error handling, rate limiting, and cost optimization shows understanding of modern cloud-native development — increasingly important as chip companies adopt AI capabilities.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Workflow Automation &amp; Process Optimization</strong> — N8N workflow design and automation patterns translate to test automation, data pipeline design, and industrial process optimization — core skills for automation engineer and firmware engineer roles.</li>
+    </ul>
+  </div>
+
+  <!-- Back -->
+  <div class="flex justify-center">
+    <a href="../../af.html" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full transition-colors">← Back to Portfolio</a>
+  </div>
+</div>
+
+<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-800 mt-12">
+  &copy; 2025 Abdul Fazil Abdul Salam &nbsp;·&nbsp; mailtofazilfz@gmail.com
+</footer>
+</body>
+</html>

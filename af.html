@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Fazil Abdul Salam — Embedded Systems & Automation Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .text-gradient { background-image: linear-gradient(135deg, #60a5fa, #3b82f6, #1d4ed8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(59,130,246,0.15); }
+    .skill-tab.active { background: #2563eb; color: #fff; }
+    .tag { display: inline-block; background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); border-radius: 9999px; padding: 2px 12px; font-size: 0.75rem; margin: 2px; }
+    .section-divider { border-top: 1px solid rgba(59,130,246,0.2); margin: 0; }
+    .glow { box-shadow: 0 0 20px rgba(59,130,246,0.2); }
+    .exp-card:hover .exp-arrow { transform: translateX(4px); }
+    .exp-arrow { transition: transform 0.2s; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeInUp { animation: fadeInUp 0.7s ease forwards; }
+    .industry-badge { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- ═══════════════════════════════════════════════════════ NAV ══ -->
+<header class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold text-gradient">Abdul Fazil</div>
+    <ul class="hidden md:flex space-x-8 text-sm font-medium">
+      <li><a href="#about" class="text-gray-400 hover:text-blue-400 transition-colors">About</a></li>
+      <li><a href="#skills" class="text-gray-400 hover:text-blue-400 transition-colors">Skills</a></li>
+      <li><a href="#experience" class="text-gray-400 hover:text-blue-400 transition-colors">Experience</a></li>
+      <li><a href="#projects" class="text-gray-400 hover:text-blue-400 transition-colors">Projects</a></li>
+      <li><a href="#education" class="text-gray-400 hover:text-blue-400 transition-colors">Education</a></li>
+      <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors">Contact</a></li>
+    </ul>
+    <a href="mailto:mailtofazilfz@gmail.com" class="hidden md:block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">Hire Me</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ HERO ══ -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 bg-gray-900 overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('src_fazil_portfolio/img/hero.webp');"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900"></div>
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(59,130,246,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.5) 1px,transparent 1px); background-size: 60px 60px;"></div>
+
+  <div class="container mx-auto px-6 text-center z-10 animate-fadeInUp">
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <span class="industry-badge text-xs px-3 py-1 rounded-full font-medium">Chip Design & Semiconductor</span>
+      <span class="industry-badge text-xs px-3 py-1 rounded-full font-medium">Industrial Automation</span>
+      <span class="industry-badge text-xs px-3 py-1 rounded-full font-medium">Embedded Firmware</span>
+      <span class="industry-badge text-xs px-3 py-1 rounded-full font-medium">Robotics & Mechatronics</span>
+    </div>
+
+    <img src="src_fazil_portfolio/img/profile picture.webp" alt="Abdul Fazil" class="w-28 h-28 rounded-full border-4 border-blue-500 shadow-xl mx-auto mb-6 object-cover glow">
+    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4">
+      <span class="text-gradient">Abdul Fazil</span><br>
+      <span class="text-white text-3xl md:text-4xl font-semibold">Abdul Salam</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-4 font-light">
+      Embedded Systems Engineer · PCB & Firmware · Robotics · Industrial Automation · AI/ML
+    </p>
+    <p class="text-sm text-gray-500 mb-8">MEng ECE — University of Windsor &nbsp;·&nbsp; Windsor, ON, Canada &nbsp;·&nbsp; Available for Full-Time Roles</p>
+
+    <div class="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:justify-center">
+      <a href="#projects" class="bg-blue-600 hover:bg-blue-500 transition-all text-white font-semibold py-3 px-8 rounded-full shadow-lg">
+        View My Projects →
+      </a>
+      <a href="https://linkedin.com/in/connectfazil" target="_blank" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-all text-gray-300 font-semibold py-3 px-8 rounded-full">
+        Connect on LinkedIn
+      </a>
+      <a href="https://femto3d.com" target="_blank" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-all text-gray-300 font-semibold py-3 px-8 rounded-full">
+        femto3d.com ↗
+      </a>
+    </div>
+
+    <!-- Quick stat row -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+      <div class="bg-gray-800/60 rounded-xl p-4 border border-gray-700">
+        <div class="text-3xl font-bold text-blue-400">200+</div>
+        <div class="text-xs text-gray-400 mt-1">Client Projects Delivered</div>
+      </div>
+      <div class="bg-gray-800/60 rounded-xl p-4 border border-gray-700">
+        <div class="text-3xl font-bold text-blue-400">🏆</div>
+        <div class="text-xs text-gray-400 mt-1">TNSI 2022 National Winner</div>
+      </div>
+      <div class="bg-gray-800/60 rounded-xl p-4 border border-gray-700">
+        <div class="text-3xl font-bold text-blue-400">10+</div>
+        <div class="text-xs text-gray-400 mt-1">Industry Certifications</div>
+      </div>
+      <div class="bg-gray-800/60 rounded-xl p-4 border border-gray-700">
+        <div class="text-3xl font-bold text-blue-400">3+</div>
+        <div class="text-xs text-gray-400 mt-1">Years Engineering Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ABOUT ══ -->
+<section id="about" class="py-24 bg-gray-800">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <h2 class="text-4xl font-bold mb-6 text-gradient">About Me</h2>
+        <p class="text-gray-300 text-lg leading-relaxed mb-5">
+          I'm a multi-award-winning Electrical &amp; Computer Engineering graduate student at the <strong class="text-white">University of Windsor</strong>, with 3+ years of hands-on experience at the intersection of <strong class="text-white">embedded firmware, hardware design, robotics, and AI/ML</strong>.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-5">
+          Founder of <strong class="text-blue-400">Femto 3D</strong> — an engineering prototyping firm delivering 200+ custom electromechanical assemblies and IoT systems to industrial clients across manufacturing, medical device, and consumer electronics sectors.
+        </p>
+        <p class="text-gray-300 leading-relaxed mb-5">
+          My flagship project — a <strong class="text-white">BCI-Controlled Bionic Arm</strong> built from first principles (CAD → custom PCB → ARM Cortex firmware → TensorFlow computer vision) — won the <strong class="text-yellow-400">TNSI 2022 National Competition (INR 1,00,000)</strong> awarded by the Government of Tamil Nadu.
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          Currently building agentic AI automation systems, gaining industrial process control experience, and pursuing graduate research in advanced energy storage and embedded systems at UWindsor. Open to full-time roles in <strong class="text-white">Toronto &amp; Windsor, ON</strong>.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="mailto:mailtofazilfz@gmail.com" class="text-sm bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full transition-colors">mailtofazilfz@gmail.com</a>
+          <a href="tel:+14377074889" class="text-sm bg-gray-700 hover:bg-gray-600 text-gray-300 px-4 py-2 rounded-full transition-colors">+1 437 707 4889</a>
+          <a href="https://github.com/abdulfazil" target="_blank" class="text-sm bg-gray-700 hover:bg-gray-600 text-gray-300 px-4 py-2 rounded-full transition-colors">github.com/abdulfazil</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-5 text-blue-400">Areas of Expertise</h3>
+        <div class="space-y-3">
+          <div class="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+            <div class="font-semibold text-white mb-1">⚡ Embedded Systems & Firmware</div>
+            <p class="text-gray-400 text-sm">ARM Cortex-M, STM32, AVR, ESP32, Raspberry Pi — programming bare-metal and with RTOS frameworks in Embedded C/C++.</p>
+          </div>
+          <div class="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+            <div class="font-semibold text-white mb-1">🔧 PCB Design & Analog Hardware</div>
+            <p class="text-gray-400 text-sm">Autodesk Eagle PCB layout, schematic capture, analog signal conditioning (op-amps, filters, ADC/DAC), EMG/EEG bio-potential circuits.</p>
+          </div>
+          <div class="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+            <div class="font-semibold text-white mb-1">🤖 Robotics & Industrial Automation</div>
+            <p class="text-gray-400 text-sm">Fanuc robot programming, Allen-Bradley PLC (ladder logic, RSLogix), pneumatics, servo/stepper control, Cognex machine vision.</p>
+          </div>
+          <div class="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+            <div class="font-semibold text-white mb-1">🧠 AI / ML & Computer Vision</div>
+            <p class="text-gray-400 text-sm">TensorFlow, PyTorch, OpenCV, YOLO object detection, BCI/EEG signal processing, agentic AI systems (OpenAI, Claude, N8N).</p>
+          </div>
+          <div class="bg-gray-700/50 rounded-xl p-4 border border-gray-600">
+            <div class="font-semibold text-white mb-1">🏭 Target Industries</div>
+            <div class="flex flex-wrap mt-2 gap-1">
+              <span class="tag">Chip Design</span><span class="tag">Semiconductor Mfg.</span><span class="tag">Industrial Automation</span><span class="tag">Automotive Electronics</span><span class="tag">Medical Devices</span><span class="tag">Robotics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SKILLS ══ -->
+<section id="skills" class="py-24 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-4 text-gradient">Technical Skills</h2>
+    <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Spanning the full hardware-software stack — from transistor-level analog circuits to cloud-connected AI automation systems.</p>
+
+    <!-- Tab buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <button class="skill-tab active text-sm py-2 px-5 rounded-full font-medium transition-colors bg-blue-600 text-white" data-cat="embedded">Embedded & Firmware</button>
+      <button class="skill-tab text-sm py-2 px-5 rounded-full font-medium transition-colors bg-gray-800 text-gray-300" data-cat="hardware">Hardware & PCB</button>
+      <button class="skill-tab text-sm py-2 px-5 rounded-full font-medium transition-colors bg-gray-800 text-gray-300" data-cat="programming">Programming</button>
+      <button class="skill-tab text-sm py-2 px-5 rounded-full font-medium transition-colors bg-gray-800 text-gray-300" data-cat="ai">AI / ML & Vision</button>
+      <button class="skill-tab text-sm py-2 px-5 rounded-full font-medium transition-colors bg-gray-800 text-gray-300" data-cat="automation">Industrial & Automation</button>
+      <button class="skill-tab text-sm py-2 px-5 rounded-full font-medium transition-colors bg-gray-800 text-gray-300" data-cat="devops">DevOps & Tools</button>
+    </div>
+
+    <!-- Skill panels -->
+    <div class="max-w-5xl mx-auto">
+
+      <div id="skill-embedded" class="skill-panel bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">Microcontroller and embedded platform expertise across the full firmware development lifecycle — bare-metal to RTOS-based systems.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Platforms</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">STM32 / ARM Cortex-M</span><span class="tag">Arduino (AVR/ATmega)</span><span class="tag">Raspberry Pi / Linux</span><span class="tag">ESP32 / ESP8266</span><span class="tag">Raspberry Pi Pico (RP2040)</span><span class="tag">PIC Microcontrollers</span><span class="tag">Teensy</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Protocols & Interfaces</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">UART / I2C / SPI / GPIO</span><span class="tag">MQTT</span><span class="tag">CAN Bus (familiar)</span><span class="tag">Bluetooth / BLE</span><span class="tag">Wi-Fi (ESP stack)</span><span class="tag">RS-232 / RS-485</span><span class="tag">PWM</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Systems & RTOS</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Bare-Metal Firmware</span><span class="tag">Interrupt-Driven Design</span><span class="tag">Embedded Linux</span><span class="tag">OTA Updates</span><span class="tag">Sensor Fusion</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Control Systems</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">PID Control</span><span class="tag">Servo / DC / Stepper Motor</span><span class="tag">PWM Speed Control</span><span class="tag">Kinematics (Fwd/Inv basics)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skill-hardware" class="skill-panel hidden bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">From schematic capture to board bring-up — analog signal conditioning, PCB layout, and validation with test equipment.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">PCB & Schematic</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Autodesk Eagle (PCB Layout)</span><span class="tag">Schematic Capture</span><span class="tag">2-Layer PCB Design</span><span class="tag">Design Rule Check (DRC)</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Analog & Signal</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Op-Amp Circuits (TL074, LM741)</span><span class="tag">Instrumentation Amplifiers</span><span class="tag">LPF / HPF / BPF Design</span><span class="tag">ADC / DAC</span><span class="tag">EMG / EEG Acquisition</span><span class="tag">Signal Conditioning</span><span class="tag">Noise Rejection</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Test & Measurement</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Oscilloscope</span><span class="tag">Digital Multimeter</span><span class="tag">Logic Analyzer</span><span class="tag">Signal Validation</span><span class="tag">Board Bring-Up</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">CAD & Fabrication</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Autodesk Fusion 360</span><span class="tag">AutoCAD</span><span class="tag">FDM 3D Printing (PLA/ABS/PETG/TPU/Nylon)</span><span class="tag">SLA Printing</span><span class="tag">GD&T</span><span class="tag">Rapid Prototyping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skill-programming" class="skill-panel hidden bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">Full-stack programming proficiency from bare-metal C to Python automation pipelines and cloud-connected systems.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Languages</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Python</span><span class="tag">Embedded C</span><span class="tag">C++</span><span class="tag">MicroPython</span><span class="tag">MATLAB / Simulink</span><span class="tag">Shell Scripting (Bash)</span><span class="tag">SQL (Oracle)</span><span class="tag">HTML / CSS</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">IDEs & Toolchains</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">VS Code</span><span class="tag">Keil MDK</span><span class="tag">Arduino IDE</span><span class="tag">PlatformIO</span><span class="tag">RSLogix Studio 5000</span><span class="tag">Oracle SQL Developer</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Libraries & Frameworks</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">NumPy / Pandas</span><span class="tag">OpenCV</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">MQTT (Paho)</span><span class="tag">Node-RED</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Scripting & Automation</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Cron Jobs</span><span class="tag">System Health Monitoring</span><span class="tag">Data Validation Scripts</span><span class="tag">Alert Automation</span><span class="tag">N8N Workflows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skill-ai" class="skill-panel hidden bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">From EEG signal classification to production agentic AI systems and real-time computer vision pipelines.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Machine Learning</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Scikit-Learn</span><span class="tag">Model Training & Inference</span><span class="tag">Edge AI / Embedded Inference</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Computer Vision</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">OpenCV</span><span class="tag">YOLO / SSD Object Detection</span><span class="tag">Image Classification</span><span class="tag">Cognex Machine Vision (Certified)</span><span class="tag">Real-Time Inference</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Agentic AI & LLMs</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">OpenAI GPT (API)</span><span class="tag">Claude (Anthropic)</span><span class="tag">N8N Agentic Workflows</span><span class="tag">Multi-Agent Systems</span><span class="tag">Prompt Engineering</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Signal Processing</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">EEG / EMG Signal Processing</span><span class="tag">BCI / Brain-Computer Interface</span><span class="tag">Digital Filtering</span><span class="tag">FFT Analysis</span><span class="tag">MATLAB DSP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skill-automation" class="skill-panel hidden bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">Industrial automation from PLC programming to robot teach pendants — certified in Rockwell, Fanuc, and Cognex platforms.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">PLC & Controls</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Allen-Bradley PLC ✓ Certified</span><span class="tag">Ladder Logic</span><span class="tag">RSLogix Studio 5000</span><span class="tag">Siemens PLC (familiar)</span><span class="tag">HMI</span><span class="tag">SCADA (familiar)</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Robotics & Motion</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Fanuc Robotics ✓ Certified</span><span class="tag">Robot Teach Pendant</span><span class="tag">End-of-Arm Tooling</span><span class="tag">Servo / Stepper Drives</span><span class="tag">Actuator Integration</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Sensors & Actuators</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Proximity Sensors</span><span class="tag">Photoelectric Sensors</span><span class="tag">Ultrasonic (HC-SR04)</span><span class="tag">IR Sensors</span><span class="tag">Solenoid Valves</span><span class="tag">Pneumatic Systems ✓ Certified</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Manufacturing & QA</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Lean Manufacturing</span><span class="tag">QA / QC</span><span class="tag">HACCP</span><span class="tag">GMP</span><span class="tag">LOTO / LOCS</span><span class="tag">Preventive Maintenance</span><span class="tag">Fault Diagnosis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="skill-devops" class="skill-panel hidden bg-gray-800 rounded-2xl p-8 border border-gray-700">
+        <p class="text-gray-400 mb-5 text-sm">Modern engineering toolchain — version control, containerization, CI/CD pipelines, and cloud-connected deployments.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Version Control & CI/CD</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Git / GitHub</span><span class="tag">CI/CD Pipelines</span><span class="tag">Automated Testing Workflows</span><span class="tag">Code Review</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Infrastructure & Cloud</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Docker (containerization)</span><span class="tag">Linux CLI / Server Admin</span><span class="tag">Cloud API Integration</span><span class="tag">OTA Firmware</span><span class="tag">MQTT Brokers</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Databases</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Oracle Database</span><span class="tag">SQL</span><span class="tag">Query Optimization</span><span class="tag">Backup & Recovery</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-blue-400 uppercase mb-3">Standards & Compliance</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">IEEE Standards</span><span class="tag">ISO Compliance</span><span class="tag">Software Validation Docs</span><span class="tag">GMP / HACCP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ EXPERIENCE ══ -->
+<section id="experience" class="py-24 bg-gray-800">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-4 text-gradient">Work Experience</h2>
+    <p class="text-center text-gray-400 mb-12">Click any role to see the full story, tech stack, and key achievements.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+      <!-- Crestlane Group -->
+      <a href="src_fazil_portfolio/links/exp_crestlane.html" class="exp-card block bg-gray-900 rounded-2xl p-6 border border-gray-700 card-hover group">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl border border-blue-800">🤖</div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">2024 – Present</div>
+            <h3 class="text-lg font-bold text-blue-400 group-hover:text-blue-300">AI Automation Developer</h3>
+            <p class="text-gray-400 text-sm mb-3">Crestlane Group &nbsp;·&nbsp; Windsor, ON</p>
+            <p class="text-gray-500 text-sm">Built agentic AI systems using OpenAI, Claude & N8N; Docker-isolated multi-agent bots; CI/CD web deployments.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">OpenAI</span><span class="tag">N8N</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
+            </div>
+          </div>
+          <span class="exp-arrow text-gray-600 group-hover:text-blue-400 text-xl mt-1">›</span>
+        </div>
+      </a>
+
+      <!-- Galati Cheese -->
+      <a href="src_fazil_portfolio/links/exp_galati.html" class="exp-card block bg-gray-900 rounded-2xl p-6 border border-gray-700 card-hover group">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 flex-shrink-0 rounded-xl overflow-hidden border border-gray-700">
+            <img src="src_fazil_portfolio/img/galati-cheese-icon.webp" class="w-full h-full object-cover" alt="Galati">
+          </div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">Mar 2025 – Present</div>
+            <h3 class="text-lg font-bold text-blue-400 group-hover:text-blue-300">Process Control & Machine Operator</h3>
+            <p class="text-gray-400 text-sm mb-3">Galati Cheese Company &nbsp;·&nbsp; Windsor, ON</p>
+            <p class="text-gray-500 text-sm">Industrial process control, sensor fault diagnosis, PM, LOTO/HACCP compliance on high-speed production lines.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">PLC / Sensors</span><span class="tag">LOTO</span><span class="tag">HACCP</span><span class="tag">Preventive Maintenance</span>
+            </div>
+          </div>
+          <span class="exp-arrow text-gray-600 group-hover:text-blue-400 text-xl mt-1">›</span>
+        </div>
+      </a>
+
+      <!-- Femto 3D -->
+      <a href="src_fazil_portfolio/links/exp_femto3d.html" class="exp-card block bg-gray-900 rounded-2xl p-6 border border-gray-700 card-hover group">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 flex-shrink-0 rounded-xl overflow-hidden border border-gray-700">
+            <img src="src_fazil_portfolio/img/femto-3d-icon.webp" class="w-full h-full object-cover" alt="Femto 3D">
+          </div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">Feb 2021 – Dec 2024</div>
+            <h3 class="text-lg font-bold text-blue-400 group-hover:text-blue-300">Owner / Founder</h3>
+            <p class="text-gray-400 text-sm mb-3">Femto 3D &nbsp;·&nbsp; India & Canada &nbsp;·&nbsp; femto3d.com</p>
+            <p class="text-gray-500 text-sm">200+ custom embedded, IoT & electromechanical projects for industrial clients. Full lifecycle: design → firmware → QA → delivery.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">Embedded C</span><span class="tag">IoT</span><span class="tag">3D Printing</span><span class="tag">PCB</span>
+            </div>
+          </div>
+          <span class="exp-arrow text-gray-600 group-hover:text-blue-400 text-xl mt-1">›</span>
+        </div>
+      </a>
+
+      <!-- IDP Education -->
+      <a href="src_fazil_portfolio/links/exp_idp.html" class="exp-card block bg-gray-900 rounded-2xl p-6 border border-gray-700 card-hover group">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 flex-shrink-0 rounded-xl overflow-hidden border border-gray-700">
+            <img src="src_fazil_portfolio/img/idp-education-icon.webp" class="w-full h-full object-cover" alt="IDP">
+          </div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">Jul 2023 – Nov 2024</div>
+            <h3 class="text-lg font-bold text-blue-400 group-hover:text-blue-300">Database Administrator (DBA)</h3>
+            <p class="text-gray-400 text-sm mb-3">IDP Education &nbsp;·&nbsp; Chennai, India</p>
+            <p class="text-gray-500 text-sm">Oracle DB (99.9% uptime), automated shell-script validation pipelines, IEEE/ISO-compliant software deployments.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">Oracle SQL</span><span class="tag">Shell Scripting</span><span class="tag">Linux</span><span class="tag">IEEE Standards</span>
+            </div>
+          </div>
+          <span class="exp-arrow text-gray-600 group-hover:text-blue-400 text-xl mt-1">›</span>
+        </div>
+      </a>
+
+      <!-- Marcellotech -->
+      <a href="src_fazil_portfolio/links/exp_marcellotech.html" class="exp-card block bg-gray-900 rounded-2xl p-6 border border-gray-700 card-hover group">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 bg-purple-900/50 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl border border-purple-800">🎓</div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">Feb 2022 – Jan 2023</div>
+            <h3 class="text-lg font-bold text-blue-400 group-hover:text-blue-300">Embedded Systems & IoT Tutor</h3>
+            <p class="text-gray-400 text-sm mb-3">Marcellotech &nbsp;·&nbsp; Tiruchirappalli, India</p>
+            <p class="text-gray-500 text-sm">Designed curriculum for Embedded C, ARM Cortex, sensor interfacing & IoT; mentored 15+ students on hardware projects.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">Embedded C</span><span class="tag">ARM Cortex</span><span class="tag">Curriculum Design</span>
+            </div>
+          </div>
+          <span class="exp-arrow text-gray-600 group-hover:text-blue-400 text-xl mt-1">›</span>
+        </div>
+      </a>
+
+      <!-- SD Pro Solutions Intern -->
+      <div class="bg-gray-900 rounded-2xl p-6 border border-gray-700 opacity-80">
+        <div class="flex items-start space-x-4">
+          <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl border border-gray-700">🔬</div>
+          <div class="flex-grow">
+            <div class="text-xs text-gray-500 mb-1">Jan 2022</div>
+            <h3 class="text-lg font-bold text-gray-400">Project Intern — IoT & ML</h3>
+            <p class="text-gray-500 text-sm mb-3">SD Pro Solutions &nbsp;·&nbsp; Tiruchirappalli, India</p>
+            <p class="text-gray-500 text-sm">ESP32 device programming, sensor data acquisition, Python ML classification pipelines for client automation projects.</p>
+            <div class="flex flex-wrap gap-1 mt-3">
+              <span class="tag">ESP32</span><span class="tag">Python</span><span class="tag">ML Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PROJECTS ══ -->
+<section id="projects" class="py-24 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-4 text-gradient">Engineering Projects</h2>
+    <p class="text-center text-gray-400 mb-12">Click any project card for a detailed technical breakdown — architecture, code, and outcomes.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Bionic Arm — FLAGSHIP -->
+      <a href="src_fazil_portfolio/links/proj_bionic_arm.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-blue-800/50 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/bionic arm.webp" alt="BCI Bionic Arm" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute top-3 left-3 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full">🏆 TNSI 2022 National Winner</div>
+          <div class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">Flagship</div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">BCI-Controlled Bionic Arm</h3>
+          <p class="text-gray-400 text-sm mb-4">Full-stack prosthetic arm — CAD → custom PCB → ARM Cortex firmware → EEG BCI → TensorFlow computer vision safety gate. Won national competition.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Embedded C</span><span class="tag">STM32</span><span class="tag">TensorFlow</span><span class="tag">Custom PCB</span><span class="tag">EEG/BCI</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- PCB Amplifier -->
+      <a href="src_fazil_portfolio/links/proj_pcb_amplifier.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-6xl">🔌</div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Custom PCB — Dual-Stage Bio-Potential Amplifier</h3>
+          <p class="text-gray-400 text-sm mb-4">2-layer PCB in Eagle; TL074 quad op-amp instrumentation amplifier with active bandpass filter. Conditions EMG/EEG signals for ARM ADC input.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Autodesk Eagle</span><span class="tag">TL074</span><span class="tag">Analog Filters</span><span class="tag">PCB Layout</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Quadruped -->
+      <a href="src_fazil_portfolio/links/proj_quadruped.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/Quadruped.webp" alt="Quadruped Robot" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Quadruped Surveillance Robot</h3>
+          <p class="text-gray-400 text-sm mb-4">12-DOF walking robot with gait algorithm, autonomous obstacle avoidance (ultrasonic/IR), Bluetooth remote control & FPV camera.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Arduino Mega</span><span class="tag">Servo Control</span><span class="tag">Gait Algorithm</span><span class="tag">Fusion 360</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Home Automation -->
+      <a href="src_fazil_portfolio/links/proj_home_automation.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/home automation.webp" alt="Home Automation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">IoT Smart Home Automation</h3>
+          <p class="text-gray-400 text-sm mb-4">Full-stack IoT: ESP32/ESP8266 MQTT sensor nodes → Raspberry Pi Linux gateway → Node-RED dashboard. Sub-100ms latency, OTA updates, anomaly alerts.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">Raspberry Pi</span><span class="tag">Node-RED</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Intruder Alert -->
+      <a href="src_fazil_portfolio/links/proj_intruder_alert.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/Intruder Alert.webp" alt="Intruder Alert" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Intruder Alert & Surveillance System</h3>
+          <p class="text-gray-400 text-sm mb-4">Raspberry Pi PIR motion detection, auto image capture on trigger, Python SMTP email alert with attached photo, live network video feed.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Raspberry Pi</span><span class="tag">PIR Sensor</span><span class="tag">Python</span><span class="tag">SMTP</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- PLC Automation -->
+      <a href="src_fazil_portfolio/links/proj_plc_automation.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="w-full h-48 bg-gradient-to-br from-orange-900/40 to-gray-900 flex items-center justify-center text-6xl">🏭</div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Allen-Bradley PLC Ladder Logic — Industrial Automation</h3>
+          <p class="text-gray-400 text-sm mb-4">Designed & simulated industrial programs: conveyor control, motor sequencing, safety interlocks, pneumatic actuator integration using RSLogix Studio 5000.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Allen-Bradley PLC</span><span class="tag">Ladder Logic</span><span class="tag">RSLogix 5000</span><span class="tag">Pneumatics</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Agentic AI -->
+      <a href="src_fazil_portfolio/links/proj_agentic_ai.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="w-full h-48 bg-gradient-to-br from-violet-900/40 to-gray-900 flex items-center justify-center text-6xl">🧠</div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Agentic AI Automation System</h3>
+          <p class="text-gray-400 text-sm mb-4">Multi-agent LLM system (OpenAI + Claude + N8N) with Docker-isolated agents, automated client outreach & reply workflows, CI/CD pipelines.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">OpenAI</span><span class="tag">Claude</span><span class="tag">N8N</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Plant Monitor -->
+      <a href="src_fazil_portfolio/links/proj_plant_monitor.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/IoT plant health monitor.webp" alt="Plant Monitor" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">IoT Plant Health Monitor</h3>
+          <p class="text-gray-400 text-sm mb-4">Real-time plant monitoring with soil moisture, temperature, humidity & light sensors; automated irrigation control; cloud dashboard & phone alerts.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">Soil Sensors</span><span class="tag">Automation</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+      <!-- Car Kit -->
+      <a href="src_fazil_portfolio/links/proj_car_kit.html" class="block bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700 group">
+        <div class="relative">
+          <img src="src_fazil_portfolio/img/car kit.webp" alt="Car Kit" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">All-in-One Multifunctional Car Kit</h3>
+          <p class="text-gray-400 text-sm mb-4">Multi-mode RC platform: autonomous obstacle avoidance, IR remote, Bluetooth app control & line-following — switchable modes, PID motor control.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">Arduino</span><span class="tag">L298N H-Bridge</span><span class="tag">PID</span><span class="tag">Ultrasonic</span>
+          </div>
+          <span class="inline-block bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-5 rounded-full transition-colors">View Full Details →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ EDUCATION ══ -->
+<section id="education" class="py-24 bg-gray-800">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16">
+
+      <!-- Education -->
+      <div>
+        <h2 class="text-4xl font-bold mb-8 text-gradient">Education</h2>
+        <div class="space-y-6">
+          <div class="bg-gray-900 rounded-2xl p-6 border border-gray-700">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-blue-400">Master of Engineering (MEng)</h3>
+                <p class="text-gray-300 font-medium">Electrical & Computer Engineering</p>
+                <p class="text-gray-400 text-sm">University of Windsor &nbsp;·&nbsp; Windsor, ON, Canada</p>
+                <p class="text-gray-500 text-xs mt-1">Jan 2025 – Present</p>
+              </div>
+              <div class="text-3xl">🎓</div>
+            </div>
+            <div class="mt-3">
+              <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Relevant Coursework</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="tag">Advanced Energy Storage</span><span class="tag">Control Systems Design</span><span class="tag">Digital Signal Processing</span><span class="tag">Advanced Embedded Systems</span><span class="tag">VLSI Design</span><span class="tag">Engineering Management</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 rounded-2xl p-6 border border-gray-700">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="text-xl font-bold text-blue-400">Bachelor of Engineering (BEng)</h3>
+                <p class="text-gray-300 font-medium">Electronics & Communication Engineering</p>
+                <p class="text-gray-400 text-sm">SRM TRP Engineering College &nbsp;·&nbsp; India (Anna University)</p>
+                <p class="text-gray-500 text-xs mt-1">Jul 2019 – May 2023 &nbsp;·&nbsp; CGPA: 8.77 / 10 (First Class with Distinction)</p>
+              </div>
+              <div class="text-3xl">🏫</div>
+            </div>
+            <div class="mt-3">
+              <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Relevant Coursework</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="tag">Microprocessors & Microcontrollers</span><span class="tag">Embedded Systems</span><span class="tag">VLSI Design</span><span class="tag">Electronic Circuits</span><span class="tag">Control Systems</span><span class="tag">IoT & Wireless Networks</span><span class="tag">Machine Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div>
+        <h2 class="text-4xl font-bold mb-8 text-gradient">Achievements</h2>
+        <div class="space-y-4">
+          <div class="bg-gray-900 rounded-xl p-5 border border-yellow-800/40">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">🥇</span>
+              <div>
+                <p class="font-bold text-white">TNSI 2022 National Winner — INR 1,00,000</p>
+                <p class="text-gray-400 text-sm mt-1">BCI-Controlled Bionic Arm project. Cash prize awarded by the Government of Tamil Nadu for innovation in assistive technology.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5 border border-gray-700">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">🥈</span>
+              <div>
+                <p class="font-bold text-white">Runner-Up — IEEE Region 10 Undergraduate Project Video Contest 2021</p>
+                <p class="text-gray-400 text-sm mt-1">Asia-Pacific region competition for the BCI Bionic Arm project.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5 border border-gray-700">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">🥇</span>
+              <div>
+                <p class="font-bold text-white">1st Place — Project Expo, SRM TRP Engineering College 2022</p>
+                <p class="text-gray-400 text-sm mt-1">Best project award for BCI-Controlled Bionic Arm.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5 border border-gray-700">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">💡</span>
+              <div>
+                <p class="font-bold text-white">Smart India Hackathon (SIH) — National Level</p>
+                <p class="text-gray-400 text-sm mt-1">Multiple participations and awards at India's largest national hackathon (2019 & 2022).</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5 border border-gray-700">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">🎖️</span>
+              <div>
+                <p class="font-bold text-white">President, Student Innovation Committee — SRM TRP EC</p>
+                <p class="text-gray-400 text-sm mt-1">Led 20+ member team to 5+ state & national competition victories; organized robotics workshops for 500+ participants.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-900 rounded-xl p-5 border border-gray-700">
+            <div class="flex items-start space-x-4">
+              <span class="text-3xl">🏅</span>
+              <div>
+                <p class="font-bold text-white">1st Place — CAD Modelling Competition, SRM TRP Engineering College</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CERTIFICATIONS ══ -->
+<section id="certifications" class="py-24 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12 text-gradient">Certifications</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+
+      <div class="bg-gray-800 p-5 rounded-xl border border-orange-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🤖</span>
+        <div><p class="font-semibold text-white text-sm">Allen-Bradley PLC Fundamentals</p><p class="text-gray-500 text-xs">Rockwell Automation — Certified</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-orange-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">⚙️</span>
+        <div><p class="font-semibold text-white text-sm">Pneumatics & Sensors — Industrial Automation</p><p class="text-gray-500 text-xs">Certified</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-orange-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🦾</span>
+        <div><p class="font-semibold text-white text-sm">Fanuc Robot Basics</p><p class="text-gray-500 text-xs">Fanuc CNC — Certified</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-blue-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">👁️</span>
+        <div><p class="font-semibold text-white text-sm">Cognex Vision Fundamentals</p><p class="text-gray-500 text-xs">Cognex — Machine Vision Certified</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-blue-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🐍</span>
+        <div><p class="font-semibold text-white text-sm">Using Python to Interact with the OS</p><p class="text-gray-500 text-xs">Google — Coursera</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-blue-800/40 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🐞</span>
+        <div><p class="font-semibold text-white text-sm">Troubleshooting & Debugging Techniques</p><p class="text-gray-500 text-xs">Google — Coursera</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">💻</span>
+        <div><p class="font-semibold text-white text-sm">Getting Started with Python</p><p class="text-gray-500 text-xs">Coursera</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🔀</span>
+        <div><p class="font-semibold text-white text-sm">Introduction to Git and GitHub</p><p class="text-gray-500 text-xs">Google — Coursera</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">📐</span>
+        <div><p class="font-semibold text-white text-sm">3D Model Creation with Autodesk Fusion 360</p><p class="text-gray-500 text-xs">Autodesk — Certified</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🗄️</span>
+        <div><p class="font-semibold text-white text-sm">Oracle Database Foundations</p><p class="text-gray-500 text-xs">LearnQuest — Coursera</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🤖</span>
+        <div><p class="font-semibold text-white text-sm">Robotics</p><p class="text-gray-500 text-xs">Certified Course</p></div>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-xl border border-gray-700 card-hover flex items-center space-x-4">
+        <span class="text-3xl">🌐</span>
+        <div><p class="font-semibold text-white text-sm">Industrial Automation: Pneumatics & Sensors</p><p class="text-gray-500 text-xs">Certified</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CONTACT ══ -->
+<section id="contact" class="py-24 bg-gray-800">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-4 text-gradient">Let's Connect</h2>
+    <p class="text-gray-400 mb-12 max-w-xl mx-auto">Open to full-time roles in <strong class="text-white">Toronto & Windsor, ON</strong> in Embedded Systems, Chip Design, Automation Engineering, Firmware, or Robotics. Available immediately upon graduation.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+      <a href="mailto:mailtofazilfz@gmail.com" class="bg-gray-900 rounded-xl p-6 border border-gray-700 card-hover flex flex-col items-center space-y-3">
+        <span class="text-3xl">📧</span>
+        <div class="text-sm font-semibold text-white">Email</div>
+        <div class="text-blue-400 text-sm">mailtofazilfz@gmail.com</div>
+      </a>
+      <a href="https://linkedin.com/in/connectfazil" target="_blank" class="bg-gray-900 rounded-xl p-6 border border-gray-700 card-hover flex flex-col items-center space-y-3">
+        <span class="text-3xl">💼</span>
+        <div class="text-sm font-semibold text-white">LinkedIn</div>
+        <div class="text-blue-400 text-sm">linkedin.com/in/connectfazil</div>
+      </a>
+      <a href="https://github.com/abdulfazil" target="_blank" class="bg-gray-900 rounded-xl p-6 border border-gray-700 card-hover flex flex-col items-center space-y-3">
+        <span class="text-3xl">🐙</span>
+        <div class="text-sm font-semibold text-white">GitHub</div>
+        <div class="text-blue-400 text-sm">github.com/abdulfazil</div>
+      </a>
+    </div>
+
+    <div class="bg-gray-900 rounded-2xl p-6 border border-gray-700 max-w-2xl mx-auto text-left">
+      <div class="text-sm font-semibold text-blue-400 mb-3">📍 Work Authorization</div>
+      <p class="text-gray-400 text-sm">Study Permit (Canada) · Eligible for Post-Graduation Work Permit (PGWP) upon graduation · Full-time available upon graduation · Co-op/part-time available during studies</p>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 bg-gray-900 border-t border-gray-800 text-center text-gray-600 text-sm">
+  <div class="container mx-auto px-6">
+    <p>&copy; 2025 Abdul Fazil Abdul Salam &nbsp;·&nbsp; <a href="https://femto3d.com" class="hover:text-blue-400 transition-colors">femto3d.com</a> &nbsp;·&nbsp; Windsor, ON, Canada</p>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.skill-tab');
+  const panels = document.querySelectorAll('.skill-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active','bg-blue-600','text-white'); t.classList.add('bg-gray-800','text-gray-300'); });
+      panels.forEach(p => p.classList.add('hidden'));
+      tab.classList.add('active','bg-blue-600','text-white');
+      tab.classList.remove('bg-gray-800','text-gray-300');
+      document.getElementById('skill-' + tab.dataset.cat).classList.remove('hidden');
+    });
+  });
+</script>
+</body>
+</html>

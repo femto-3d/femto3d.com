@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom PCB — Bio-Potential Amplifier — Abdul Fazil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;} .text-gradient{background-image:linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} .tag{display:inline-block;background:rgba(59,130,246,0.15);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);border-radius:9999px;padding:2px 12px;font-size:0.75rem;margin:2px;} .step-num{background:#1d4ed8;color:white;border-radius:9999px;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.875rem;flex-shrink:0;}</style>
+</head>
+<body class="bg-gray-900 text-white">
+<nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+  <a href="../../af.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">← Back to Portfolio</a>
+  <span class="text-gray-500 text-sm">Abdul Fazil — Project Detail</span>
+</nav>
+
+<div class="pt-20">
+  <div class="bg-gradient-to-br from-blue-900/40 via-gray-900 to-gray-900 h-64 flex items-end pb-10 px-8">
+    <div>
+      <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">Hardware & PCB Design</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white">Custom PCB<br><span class="text-2xl md:text-3xl text-gray-300 font-medium">Dual-Stage Bio-Potential Signal Amplifier</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+  <div class="flex flex-wrap gap-2 mb-10">
+    <span class="tag">Autodesk Eagle</span><span class="tag">TL074 Quad Op-Amp</span><span class="tag">Instrumentation Amplifier</span><span class="tag">Active Bandpass Filter</span><span class="tag">EMG Signal Processing</span><span class="tag">EEG Acquisition</span><span class="tag">2-Layer PCB</span><span class="tag">Analog Circuit Design</span><span class="tag">ADC Interface</span>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="md:col-span-2">
+      <h2 class="text-2xl font-bold text-gradient mb-4">Overview</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">Designed a 2-layer PCB in Autodesk Eagle for conditioning bio-potential signals (EMG and EEG) from surface electrodes before feeding them to the ARM Cortex ADC. Bio-potential signals are extremely weak (10 µV – 5 mV for EMG; 1–100 µV for EEG) and heavily contaminated by 50/60 Hz mains interference, common-mode noise from electrode-skin contact, and motion artifacts.</p>
+      <p class="text-gray-300 leading-relaxed mb-4">The circuit uses the TL074 quad op-amp IC to implement a two-stage amplification and filtering chain that boosts the useful signal by 60–80 dB while rejecting power line noise and DC offset — delivering a clean, ADC-compatible output (0–3.3V range).</p>
+      <p class="text-gray-300 leading-relaxed">This PCB was a sub-component of the BCI-Controlled Bionic Arm flagship project, but represents a standalone hardware design deliverable with direct applicability to medical device, sensor IC, and wearable electronics development.</p>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Tool</div><p class="text-white font-medium">Autodesk Eagle</p></div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Key IC</div><p class="text-white font-medium">TL074 Quad Op-Amp</p></div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Signal Type</div><p class="text-white font-medium">EMG (20–500 Hz) & EEG (8–30 Hz)</p></div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Relevance</div><p class="text-gray-300 text-sm">Analog IC design · Mixed-signal PCB · Medical electronics · Sensor front-end</p></div>
+    </div>
+  </div>
+
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Circuit Design — Stage by Stage</h2>
+    <div class="space-y-5">
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Stage 1 — Instrumentation Amplifier (Differential Input)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The first amplifier stage is configured as a differential instrumentation amplifier using two op-amp sections of the TL074. Differential topology rejects common-mode signals (power line noise, EMI) with a CMRR &gt; 80 dB. The gain resistor sets Stage 1 gain to 100× (40 dB), amplifying the µV-range differential bio-potential while keeping common-mode noise unchanged. A high-input-impedance buffer protects the electrode-skin interface from loading.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Stage 2 — Active Bandpass Filter (Sallen-Key Topology)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The second stage uses the remaining two sections of the TL074 to implement an active bandpass filter. The filter is configured as a cascaded high-pass (20 Hz cutoff) and low-pass (500 Hz cutoff) Sallen-Key stage — targeting the EMG frequency band (20–500 Hz). For EEG acquisition mode, component values are swapped (selectable via jumper) for an 8–30 Hz alpha/beta band. Additional 50 Hz notch achieved through component ratio tuning. Total Stage 2 gain: 10× (20 dB).</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">DC Offset & Level Shifting</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Bio-potential amplifiers operating from a single supply (3.3V for ARM compatibility) require mid-supply biasing. A precision voltage divider (1.65V virtual ground) biases the amplifier chain mid-rail, allowing bipolar signal excursions while keeping the output within ADC range. Output signal: 1.65V ± 1.2V under full EMG activation, cleanly within the STM32 ADC's 0–3.3V range.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">PCB Layout — Autodesk Eagle (2-Layer)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Laid out the 2-layer PCB in Autodesk Eagle with careful attention to analog layout rules: (1) Ground plane on bottom layer for shielding; (2) Input trace kept short with guard rings to prevent capacitive coupling; (3) Decoupling capacitors placed within 2mm of each op-amp supply pin; (4) Electrode connector pads separated from digital circuit sections. Board dimensions: 45mm × 35mm. DRC passed with zero errors before fabrication.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">5</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Validation & Testing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Board validated on oscilloscope with a 1 mV pp, 50 Hz test signal injected at the input. Output measured at 1V pp at 50 Hz with &gt;90% attenuation (expected for notch filter), confirming filter operation. Live EMG test with surface electrodes on forearm: clean signal visible on oscilloscope with muscle contraction — noise floor &lt;50 µV after filtering. ADC input confirmed stable and noise-free during Bionic Arm integration testing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-12 bg-blue-900/20 rounded-2xl p-6 border border-blue-800/40">
+    <h2 class="text-xl font-bold text-blue-400 mb-4">Relevance to Chip Design & Semiconductor Industry</h2>
+    <ul class="space-y-2 text-gray-300 text-sm">
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Analog circuit design</strong> from first principles (gain, filter topology, biasing) — directly applicable to analog/mixed-signal IC design at Texas Instruments, Analog Devices, Infineon, and ON Semiconductor.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>PCB layout with signal integrity awareness</strong> — ground planes, trace shielding, decoupling — mirrors PCB bring-up and validation responsibilities at chip companies' application engineering teams.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>ADC interface design</strong> — understanding of input range, sampling rate, and anti-aliasing requirements is fundamental to embedded firmware engineers working with ADC-equipped microcontrollers and SoCs.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Medical/wearable electronics</strong> — bio-potential acquisition is a fast-growing sector; this project demonstrates direct prior art for companies building medical sensor ICs, hearing aid chips, and neurological monitoring hardware.</li>
+    </ul>
+  </div>
+
+  <div class="flex justify-center">
+    <a href="../../af.html" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full transition-colors">← Back to Portfolio</a>
+  </div>
+</div>
+<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-800 mt-12">&copy; 2025 Abdul Fazil Abdul Salam · mailtofazilfz@gmail.com</footer>
+</body>
+</html>

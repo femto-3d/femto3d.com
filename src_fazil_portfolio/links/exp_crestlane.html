@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Developer — Crestlane Group — Abdul Fazil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;} .text-gradient{background-image:linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;} .tag{display:inline-block;background:rgba(59,130,246,0.15);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);border-radius:9999px;padding:2px 12px;font-size:0.75rem;margin:2px;} .step-num{background:#1d4ed8;color:white;border-radius:9999px;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.875rem;flex-shrink:0;}</style>
+</head>
+<body class="bg-gray-900 text-white">
+<nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+  <a href="../../af.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">← Back to Portfolio</a>
+  <span class="text-gray-500 text-sm">Abdul Fazil — Work Experience</span>
+</nav>
+
+<div class="pt-20">
+  <div class="bg-gradient-to-br from-violet-900/40 via-gray-900 to-gray-900 h-64 flex items-end pb-10 px-8">
+    <div>
+      <span class="bg-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">2024 – Present &nbsp;·&nbsp; Windsor, ON</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white">AI Automation Developer</h1>
+      <p class="text-2xl text-gray-400 font-medium mt-1">Crestlane Group</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+  <div class="flex flex-wrap gap-2 mb-10">
+    <span class="tag">OpenAI GPT API</span><span class="tag">Claude (Anthropic)</span><span class="tag">N8N Agentic Workflows</span><span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">CI/CD Pipelines</span><span class="tag">Git / GitHub</span><span class="tag">Python</span><span class="tag">Linux Server</span><span class="tag">REST APIs</span><span class="tag">SMTP / Email Automation</span>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="md:col-span-2">
+      <h2 class="text-2xl font-bold text-gradient mb-4">Role Overview</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">At Crestlane Group — a digital marketing and client services company — I designed and deployed a production-grade multi-agent AI automation system that handles client outreach, marketing campaigns, intelligent email replies, and business analytics with minimal human intervention.</p>
+      <p class="text-gray-300 leading-relaxed mb-4">The system uses OpenAI GPT and Claude (Anthropic) as the core reasoning engines, N8N as the orchestration and workflow layer, and Docker for agent isolation and deployment. A dedicated Linux server hosts the full stack, with Git-based CI/CD pipelines for continuous deployment of workflow and prompt updates.</p>
+      <p class="text-gray-300 leading-relaxed">This role required full-stack engineering skills: system architecture design, Docker infrastructure, API integration, Python scripting, server administration, and prompt engineering — all applied to building a reliable, production-safe AI automation system.</p>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Duration</div><p class="text-white font-medium">2024 – Present</p></div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Location</div><p class="text-white font-medium">Windsor, ON, Canada</p></div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700"><div class="text-xs text-gray-500 uppercase font-semibold mb-2">Key Technologies</div><p class="text-gray-300 text-sm">OpenAI · Claude · N8N · Docker · Git · Python · Linux</p></div>
+    </div>
+  </div>
+
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Key Contributions</h2>
+    <div class="space-y-5">
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Multi-Agent AI Architecture Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Designed a multi-agent system with 4 specialized AI agents: (A) inbound query classifier, (B) email/message response drafter, (C) marketing content generator, (D) business analytics summarizer. Each agent was given a tightly-scoped system prompt with explicit output format requirements. Agents operate independently and communicate only through structured JSON messages via a shared Redis queue — no shared conversational memory, preventing cross-agent hallucination.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Docker Containerization & Server Infrastructure</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Each AI agent runs in its own Docker container, defined in a <code class="bg-gray-700 px-1 rounded text-blue-300">docker-compose.yml</code> file with resource limits (CPU, memory) to prevent one runaway agent from starving others. Containers share only the Redis message broker. A dedicated Linux server (Ubuntu 22.04) hosts the full stack. Nginx reverse proxy routes external webhook requests to the correct N8N endpoint. Systemd and Docker restart policies ensure 24/7 uptime with auto-restart on crash.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">N8N Agentic Workflow Orchestration</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Configured N8N (self-hosted) as the visual workflow engine connecting triggers (email webhooks, scheduled crons, form submissions) to AI agents and output channels (SMTP, CRM, Slack). Workflows include: inbound email → classify → route to drafter agent → output to approval queue → send. All workflows are version-controlled via N8N's export JSON, committed to Git for auditability and rollback capability.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">CI/CD Pipeline for Deployment</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Implemented a Git-based CI/CD pipeline using GitHub Actions: code push to <code class="bg-gray-700 px-1 rounded text-blue-300">main</code> branch → GitHub Actions workflow validates JSON/Python syntax → SSH into server → <code class="bg-gray-700 px-1 rounded text-blue-300">docker-compose pull && docker-compose up --build -d</code> → health-check endpoint confirms all containers running → notification sent. Zero-downtime rolling deployment for prompt and workflow updates.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">5</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Client Outreach & Marketing Automation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Built an outreach pipeline: N8N polls the lead database (Google Sheets / Airtable) → formats each lead's context → GPT-4 drafts a personalized outreach email (name, business type, specific pain point) → SMTP sends → reply webhook detects responses → classifies intent → routes to follow-up agent. Weekly analytics report (open rate, reply rate, conversion) auto-generated by the Analytics Agent and emailed to the business owner.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">6</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Web Design, Deployment & Client Dashboards</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Designed and deployed client-facing web dashboards for campaign performance analytics. Built with HTML/CSS/JavaScript, deployed via Git push to Netlify/server. CI/CD pipeline handles automatic rebuild on commit. Dashboards pull live data from N8N via REST API and render charts using Chart.js. Clients access their own branded dashboard to view outreach metrics, response rates, and campaign ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-5">Key Achievements</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl font-bold text-blue-400 mb-2">100%</div>
+        <p class="text-gray-400 text-sm">Automated client response workflow — zero manual drafting for standard queries</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl font-bold text-blue-400 mb-2">4</div>
+        <p class="text-gray-400 text-sm">Specialized Docker-isolated AI agents running 24/7 in production</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl font-bold text-blue-400 mb-2">CI/CD</div>
+        <p class="text-gray-400 text-sm">Git-based deployment pipeline with zero-downtime updates</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-12 bg-blue-900/20 rounded-2xl p-6 border border-blue-800/40">
+    <h2 class="text-xl font-bold text-blue-400 mb-4">Relevance to Chip Design, Automation & Fortune 500 Tech Roles</h2>
+    <ul class="space-y-2 text-gray-300 text-sm">
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>AI-first test automation</strong> — building agentic AI pipelines (classify → act → validate) is directly analogous to AI-assisted regression testing workflows being adopted by AMD, Intel, and Qualcomm for chip validation.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Docker containerization</strong> — container-based workload isolation is the standard in modern CI/CD for semiconductor EDA tools, simulation farms, and cloud-based VLSI verification environments.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>CI/CD pipeline engineering</strong> — Git-based deployment pipelines are essential for firmware teams, FPGA verification teams, and software engineers at chip companies who need reliable, repeatable build and test automation.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>System architecture design</strong> — designing multi-component distributed systems (agents, queues, orchestration, APIs) demonstrates the architectural thinking required for senior embedded systems and platform engineering roles.</li>
+    </ul>
+  </div>
+
+  <div class="flex justify-center">
+    <a href="../../af.html" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full transition-colors">← Back to Portfolio</a>
+  </div>
+</div>
+<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-800 mt-12">&copy; 2025 Abdul Fazil Abdul Salam · mailtofazilfz@gmail.com</footer>
+</body>
+</html>

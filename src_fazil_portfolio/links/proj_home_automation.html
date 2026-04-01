@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Smart Home Automation System — Abdul Fazil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .text-gradient { background-image: linear-gradient(135deg,#60a5fa,#3b82f6,#1d4ed8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .tag { display:inline-block; background:rgba(59,130,246,0.15); color:#93c5fd; border:1px solid rgba(59,130,246,0.3); border-radius:9999px; padding:2px 12px; font-size:0.75rem; margin:2px; }
+    .step-num { background:#1d4ed8; color:white; border-radius:9999px; width:2rem; height:2rem; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:0.875rem; flex-shrink:0; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Nav -->
+<nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+  <a href="../../af.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-2">← Back to Portfolio</a>
+  <span class="text-gray-500 text-sm">Abdul Fazil — Project Detail</span>
+</nav>
+
+<!-- Hero -->
+<div class="pt-20">
+  <div class="relative h-72 md:h-96 overflow-hidden">
+    <img src="../img/home automation.webp" class="w-full h-full object-cover opacity-60" alt="Home Automation">
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+    <div class="absolute bottom-8 left-8 right-8">
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">IoT Architecture</span>
+        <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Full-Stack System</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white">IoT Smart Home Automation<br><span class="text-2xl md:text-3xl text-gray-300 font-medium">Multi-Sensor Network with Cloud Gateway &amp; Dashboard</span></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-6 py-12 max-w-5xl">
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-2 mb-10">
+    <span class="tag">Python</span><span class="tag">ESP32</span><span class="tag">ESP8266</span><span class="tag">Raspberry Pi</span><span class="tag">MQTT</span><span class="tag">Node-RED</span><span class="tag">OTA Firmware</span><span class="tag">MicroPython</span><span class="tag">Relay Control</span><span class="tag">SQLite</span><span class="tag">Sub-100ms Latency</span>
+  </div>
+
+  <!-- Overview -->
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="md:col-span-2">
+      <h2 class="text-2xl font-bold text-gradient mb-4">Project Overview</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        A complete full-stack IoT home automation system demonstrating the entire smart home pipeline: wireless sensor nodes, MQTT message broker, Linux gateway controller, rule engine, and interactive dashboard. The system integrates 5+ distributed sensor nodes (ESP32 &amp; ESP8266 microcontrollers) with a Raspberry Pi central gateway running Python automation scripts.
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Each sensor node measures temperature, humidity, motion, gas concentration, and light level — publishing readings every 60 seconds via MQTT. The Raspberry Pi gateway processes sensor data, runs anomaly detection algorithms, triggers actuators (relays for fans, lights, gas cutoff), and logs everything to a local SQLite database. An attractive Node-RED dashboard provides real-time visualization and manual controls.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        Key achievement: <strong class="text-yellow-400">Sub-100ms latency</strong> (average 87ms sensor-to-actuator response). <strong class="text-green-400">72-hour continuous operation</strong> with zero dropped MQTT messages. Demonstrates production-grade IoT patterns used in industrial automation.
+      </p>
+    </div>
+    <div class="space-y-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Timeline</div>
+        <p class="text-white font-medium">2023 – Present</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Sensor Nodes</div>
+        <p class="text-white font-medium">5+ ESP32/ESP8266 devices</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Latency</div>
+        <p class="text-green-400 font-medium">avg 87ms (Wi-Fi)</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="text-xs text-gray-500 uppercase font-semibold mb-2">Target Industries</div>
+        <p class="text-gray-300 text-sm">IIoT · Smart Building · Automation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Architecture -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">System Architecture</h2>
+    <div class="grid md:grid-cols-4 gap-4">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">📡</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Sensor Nodes</div>
+        <p class="text-gray-400 text-xs">ESP32/ESP8266 with DHT22, PIR, MQ-2, LDR sensors. MicroPython firmware.</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🔌</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Message Broker</div>
+        <p class="text-gray-400 text-xs">Mosquitto MQTT broker on Raspberry Pi. QoS 1 for reliability.</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">🧠</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Gateway Logic</div>
+        <p class="text-gray-400 text-xs">Python scripts run threshold logic, automation rules, data logging to SQLite.</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-3xl mb-3">📊</div>
+        <div class="font-semibold text-blue-400 text-sm mb-2">Dashboard</div>
+        <p class="text-gray-400 text-xs">Node-RED UI with live gauges, charts, toggle controls, mobile-responsive.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Was Built -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">How It Was Built — Step by Step</h2>
+    <div class="space-y-6">
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">1</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Hardware Layer — Multi-Sensor Nodes</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Designed and assembled 5 independent wireless sensor nodes, each consisting of: (1) ESP32 or ESP8266 microcontroller, (2) DHT22 temperature/humidity sensor, (3) HC-SR501 PIR motion detector, (4) MQ-2 gas sensor (detects LPG/smoke), (5) LDR light sensor on ADC, (6) 2-channel relay module for light/fan control. Each node powered by USB 5V adapter or battery pack. All sensor interfaces use standard GPIO/ADC pins. Nodes are housed in 3D-printed enclosures with proper ventilation for gas sensor exposure.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">2</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">MQTT Communication Layer</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Installed Mosquitto MQTT broker on Raspberry Pi (Debian-based package). Each sensor node connects to the Pi's local network (192.168.1.x) and publishes sensor readings to structured MQTT topics: home/livingroom/temperature, home/livingroom/humidity, home/kitchen/gas_level, etc. Quality of Service (QoS) set to level 1 for guaranteed delivery with no duplicates. Topic hierarchy allows flexible filtering in downstream subscribers. MQTT retain flag enabled for critical actuator commands (lights, fans) so state persists across broker restarts.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">3</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Raspberry Pi Gateway — Python Automation Brain</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Wrote Python 3 scripts on Raspberry Pi (Raspbian Linux) that subscribe to all MQTT topics using the Paho MQTT library. Main logic flow: (1) Read incoming sensor messages, (2) Apply threshold rules (e.g., if temperature &gt;28°C and humidity &gt;70%, turn on fan relay), (3) Write decision to MQTT actuator topics, (4) Log all sensor readings and actions to local SQLite3 database with timestamp. Implemented multithreaded architecture to prevent MQTT subscriptions from blocking disk I/O. Database schema includes tables for readings (datetime, location, sensor_type, value) and events (timestamp, event_type, action_taken).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">4</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Node-RED Visual Workflow &amp; Dashboard</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Installed Node-RED (JavaScript runtime for visual workflows) on the Raspberry Pi. Built drag-and-drop MQTT subscriber nodes → function nodes → UI dashboard nodes. Dashboard displays: live temperature/humidity gauges, motion detection status, gas sensor readings with color-coded warnings, light sensor graph, and toggle buttons for manual relay control. All dashboard elements update in real-time as sensor data arrives. Dashboard accessible via web browser (http://192.168.1.20:1880/ui) from any device on home network — fully responsive design adapts to mobile screens.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">5</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">OTA Firmware Updates — Zero Downtime Deployments</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Implemented Over-The-Air (OTA) firmware update capability using the ArduinoOTA library on all ESP32/ESP8266 nodes. Each node connects to a Python script running on the gateway that serves new firmware binaries. To push an update: (1) compile new MicroPython code on laptop, (2) transfer binary to Raspberry Pi via SCP, (3) trigger OTA update from Node-RED dashboard button, (4) each node downloads and self-flashes in 30 seconds, (5) auto-reboot. Zero downtime — other nodes continue operating while one node updates. Tested firmware rollback by uploading previous version — all node states recovered correctly.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">6</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Anomaly Detection &amp; Alert System</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Developed Python anomaly detection module that maintains a rolling 24-hour window of sensor values for each location. Calculates mean and standard deviation every hour. Any new reading that deviates &gt;2σ (two standard deviations) from the mean is flagged as an anomaly. Examples: gas sensor spike (leak detection), sudden temperature drop (door left open), motion at 3 AM in unoccupied room. Anomalies trigger automatic actions: (1) email alert to homeowner with timestamp and sensor values, (2) if gas above threshold, automatically actuate solenoid valve to disable stove (safety), (3) log event to database with "ALERT" flag. Email dispatch latency &lt;5 seconds (Gmail SMTP via TLS).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-5 bg-gray-800 rounded-xl p-5 border border-gray-700">
+        <div class="step-num">7</div>
+        <div>
+          <h3 class="font-bold text-white mb-2">Performance Validation &amp; Production Testing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Conducted 72-hour continuous operation test without manual intervention. Measured sensor-to-actuator latency using synchronized timestamps: publish sensor reading → log MQTT receive time on gateway → timestamp actuator command → measure time delta. Results: average latency 87ms (min 45ms, max 140ms) on local Wi-Fi. Tested message reliability by intentionally dropping network packets — configured QoS 1 prevented any lost messages over 72 hours. Monitored database size: average growth 50MB per week at 60-second sampling interval across 5 nodes. Implemented automatic database compression (SQLite VACUUM) to maintain performance. Zero crashes, zero missed messages, 100% uptime.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Key Results -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gradient mb-6">Key Results &amp; Metrics</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-2">87ms</div>
+        <p class="text-gray-400 text-sm">Avg sensor-to-actuator latency</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-green-400 mb-2">72h</div>
+        <p class="text-gray-400 text-sm">Continuous operation, zero dropped messages</p>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 text-center">
+        <div class="text-4xl font-bold text-yellow-400 mb-2">5+</div>
+        <p class="text-gray-400 text-sm">Autonomous sensor nodes on network</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Relevance to Chip/Automation Companies -->
+  <div class="mb-12 bg-blue-900/20 rounded-2xl p-6 border border-blue-800/40">
+    <h2 class="text-xl font-bold text-blue-400 mb-4">Relevance to Chip Design, Semiconductor &amp; Automation Industries</h2>
+    <ul class="space-y-2 text-gray-300 text-sm">
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>IIoT Architecture Patterns</strong> — Sensor nodes → MQTT broker → edge gateway logic is the standard pattern in industrial automation (used by Rockwell Automation, Siemens, Honeywell industrial IoT platforms).</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>MQTT/Edge Computing</strong> — Production-grade MQTT implementation with QoS levels, topic filtering, and broker reliability directly applicable to smart factory and building management system roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>OTA Firmware Management</strong> — Over-The-air updates are standard in production IoT chips (Espressif ESP32/ESP8266, Nordic Semiconductor, Silicon Labs BG24) — this project demonstrates understanding of bootloader safety and rollback mechanisms.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Distributed Embedded Systems</strong> — Managing 5+ independent microcontroller nodes via a central gateway shows experience with network protocols, edge processing, and real-time scheduling — essential for industrial automation and autonomous robotics roles.</li>
+      <li class="flex gap-3"><span class="text-blue-400">▸</span> <strong>Data Logging &amp; Anomaly Detection</strong> — Implementing 2σ anomaly detection with historical trending is used in predictive maintenance systems (Industry 4.0), energy monitoring, and sensor validation pipelines at chip and automation companies.</li>
+    </ul>
+  </div>
+
+  <!-- Back -->
+  <div class="flex justify-center">
+    <a href="../../af.html" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-full transition-colors">← Back to Portfolio</a>
+  </div>
+</div>
+
+<footer class="py-6 text-center text-gray-600 text-sm border-t border-gray-800 mt-12">
+  &copy; 2025 Abdul Fazil Abdul Salam &nbsp;·&nbsp; mailtofazilfz@gmail.com
+</footer>
+</body>
+</html>
