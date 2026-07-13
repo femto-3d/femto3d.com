@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training Tracker — Strength & Lean Muscle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<style>
+:root{
+  --blue-900:#0d3b7a; --blue-700:#1a5cb0; --blue-600:#2b6fd4; --blue-500:#3d82e6;
+  --blue-100:#e3eefc; --blue-50:#f2f7fe;
+  --ink:#1c2733; --ink-soft:#5a6b7d; --line:#dfe7f0;
+  --green:#1e9e5a; --green-bg:#e7f7ee;
+  --radius:12px;
+  font-size:15px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:#fff;color:var(--ink);line-height:1.5;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+
+/* header */
+header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
+.header-in{max-width:1080px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue-600),var(--blue-900));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
+.logo h1{font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.logo p{font-size:.72rem;color:var(--ink-soft);margin-top:-2px}
+.spacer{flex:1}
+.week-nav{display:flex;align-items:center;gap:8px;background:var(--blue-50);border:1px solid var(--line);border-radius:10px;padding:4px 6px}
+.week-nav button{border:0;background:transparent;color:var(--blue-700);font-size:1rem;cursor:pointer;padding:4px 8px;border-radius:7px}
+.week-nav button:hover{background:var(--blue-100)}
+.week-label{font-size:.82rem;font-weight:600;color:var(--blue-900);min-width:150px;text-align:center}
+.icon-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:.82rem;font-weight:600;color:var(--blue-700);display:flex;align-items:center;gap:6px}
+.icon-btn:hover{background:var(--blue-50)}
+#syncStatus{font-size:.75rem;color:var(--ink-soft)}
+#syncStatus.ok{color:var(--green)}
+#syncStatus.err{color:#c0392b}
+
+/* day tabs */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:18px 0 6px}
+.tab{flex:1;min-width:110px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:10px 12px;cursor:pointer;text-align:left;transition:all .15s}
+.tab:hover{border-color:var(--blue-500)}
+.tab .d{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.tab .t{font-size:.8rem;font-weight:600;margin-top:2px}
+.tab.active{background:var(--blue-700);border-color:var(--blue-700)}
+.tab.active .d{color:var(--blue-100)}
+.tab.active .t{color:#fff}
+.tab .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-left:5px;vertical-align:1px}
+
+/* day header */
+.day-head{display:flex;align-items:baseline;gap:12px;margin:22px 0 4px;flex-wrap:wrap}
+.day-head h2{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;color:var(--blue-900)}
+.day-head .sub{color:var(--ink-soft);font-size:.85rem}
+.progress-pill{margin-left:auto;background:var(--blue-50);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:.78rem;font-weight:600;color:var(--blue-700)}
+
+.note-box{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:.84rem;color:var(--ink-soft)}
+.note-box b{color:var(--blue-900)}
+
+/* exercise cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:14px}
+.card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden;transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 18px rgba(26,92,176,.08)}
+.card.done{border-color:var(--green);background:linear-gradient(#fff,#fbfffc)}
+.card-top{display:flex;gap:14px;padding:16px 16px 10px}
+.fig{flex:0 0 118px;height:96px;background:var(--blue-50);border:1px solid var(--blue-100);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.fig svg{width:104px;height:84px}
+.card-info{flex:1;min-width:0}
+.card-info .num{font-size:.68rem;font-weight:700;color:var(--blue-500);letter-spacing:.05em}
+.card-info h3{font-size:.98rem;font-weight:700;letter-spacing:-.01em;margin:1px 0 4px}
+.target{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:var(--blue-100);color:var(--blue-900);border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:600}
+.chip.rest{background:#eef2f6;color:var(--ink-soft)}
+.tip{font-size:.74rem;color:var(--ink-soft);margin-top:6px}
+.card-log{border-top:1px dashed var(--line);padding:12px 16px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:3px}
+.field label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+.field input{width:86px;border:1px solid var(--line);border-radius:8px;padding:7px 9px;font:inherit;font-size:.85rem}
+.field input:focus{outline:2px solid var(--blue-500);border-color:var(--blue-500)}
+.done-btn{margin-left:auto;border:1px solid var(--line);background:#fff;color:var(--ink-soft);border-radius:9px;padding:9px 16px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .15s}
+.done-btn:hover{border-color:var(--green);color:var(--green)}
+.done-btn.on{background:var(--green);border-color:var(--green);color:#fff}
+.best{font-size:.7rem;color:var(--blue-700);font-weight:600;width:100%;margin-top:2px}
+.yt-link{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:.74rem;font-weight:600;color:var(--blue-700);text-decoration:none;border:1px solid var(--blue-100);background:var(--blue-50);border-radius:7px;padding:3px 9px}
+.yt-link:hover{background:var(--blue-100)}
+.yt-link .play{color:#e02b2b;font-size:.8rem}
+
+/* history */
+.history{margin-top:36px}
+.history h2{font-size:1.1rem;font-weight:800;color:var(--blue-900);margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{text-align:left;padding:8px 10px;background:var(--blue-50);color:var(--blue-900);font-weight:700;border-bottom:2px solid var(--blue-100)}
+td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--ink)}
+tr:hover td{background:var(--blue-50)}
+.muted{color:var(--ink-soft)}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(13,59,122,.35);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:480px;width:100%;padding:26px;max-height:90vh;overflow:auto}
+.modal h2{font-size:1.15rem;font-weight:800;color:var(--blue-900);margin-bottom:4px}
+.modal .hint{font-size:.78rem;color:var(--ink-soft);margin-bottom:16px}
+.modal .field{margin-bottom:12px}
+.modal .field input{width:100%}
+.btn-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{border:0;border-radius:9px;padding:10px 18px;font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--blue-700);color:#fff}
+.btn.primary:hover{background:var(--blue-600)}
+.btn.ghost{background:var(--blue-50);color:var(--blue-700);border:1px solid var(--line)}
+.step-list{font-size:.78rem;color:var(--ink-soft);background:var(--blue-50);border-radius:10px;padding:12px 14px 12px 28px;margin-bottom:14px}
+.step-list li{margin:3px 0}
+.step-list a{color:var(--blue-700)}
+
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .week-label{min-width:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="logo">
+      <div class="logo-mark">TT</div>
+      <div><h1>Training Tracker</h1><p>Strength &amp; lean muscle &middot; Beginner</p></div>
+    </div>
+    <div class="spacer"></div>
+    <span id="syncStatus"></span>
+    <div class="week-nav">
+      <button id="prevWeek" title="Previous week">&#8592;</button>
+      <span class="week-label" id="weekLabel"></span>
+      <button id="nextWeek" title="Next week">&#8594;</button>
+    </div>
+    <button class="icon-btn" id="syncBtn">&#8635; Sync</button>
+    <button class="icon-btn" id="settingsBtn">&#9881; Settings</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div id="dayView"></div>
+  <div class="history" id="historyView"></div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2>GitHub Sync Settings</h2>
+    <p class="hint">Your logs live in a real SQLite database file (<b>data/workout-log.db</b>) inside your own GitHub repository. Every save is committed to the repo and syncs across devices.</p>
+    <ol class="step-list">
+      <li>Create a <b>fine-grained personal access token</b> at <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens</a></li>
+      <li>Repository access: <b>only this repo</b></li>
+      <li>Permissions: <b>Contents &rarr; Read and write</b></li>
+      <li>Paste it below. It is stored only in this browser.</li>
+    </ol>
+    <div class="field"><label>GitHub username (owner)</label><input id="cfgOwner" placeholder="e.g. abdulfazil"></div>
+    <div class="field"><label>Repository name</label><input id="cfgRepo" placeholder="e.g. workout-tracker"></div>
+    <div class="field"><label>Branch</label><input id="cfgBranch" placeholder="main"></div>
+    <div class="field"><label>Personal access token</label><input id="cfgToken" type="password" placeholder="github_pat_..."></div>
+    <div class="btn-row">
+      <button class="btn primary" id="saveCfg">Save &amp; Sync</button>
+      <button class="btn ghost" id="exportBtn">Export .db</button>
+      <button class="btn ghost" id="importBtn">Import .db</button>
+      <button class="btn ghost" id="closeCfg">Close</button>
+      <input type="file" id="importFile" accept=".db,.sqlite,.sqlite3" style="display:none">
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ PROGRAM DEFINITION ============ */
+// yt = YouTube search query for a form/technique video (opens top results — always up to date).
+// To pin an exact video instead, replace the query with a full URL like "https://youtu.be/VIDEO_ID".
+const PROGRAM = {
+  mon: {
+    title: "Full Body Strength A", sub: "Gym · heavy compounds", type: "gym",
+    warmup: "<b>Warm-up (10 min):</b> 5 min treadmill or rowing · dynamic leg swings · shoulder circles · hip mobility. Do <b>2 light warm-up sets</b> before each compound lift. Finish the session with 5 min of stretching.",
+    exercises: [
+      {id:"squat",     name:"Barbell Back Squat",     sets:"4 × 5",        rest:"2–3 min", svg:"squat",     tip:"Brace core, sit back and down, knees track over toes, hit parallel.", yt:"barbell back squat proper form beginner"},
+      {id:"bench",     name:"Barbell Bench Press",    sets:"4 × 5",        rest:"2–3 min", svg:"bench",     tip:"Shoulder blades pinched, feet planted, bar touches mid-chest.", yt:"barbell bench press proper form beginner"},
+      {id:"row",       name:"Barbell Bent-Over Row",  sets:"4 × 6",        rest:"2 min",        svg:"row",       tip:"Hinge to ~45°, flat back, pull bar to lower ribs.", yt:"barbell bent over row proper form"},
+      {id:"legcurl",   name:"Leg Curl Machine",       sets:"3 × 10–12", rest:"90 sec",     svg:"legcurl",   tip:"Slow negative, don't let hips lift off the pad.", yt:"lying leg curl machine proper form"},
+      {id:"dbshoulder",name:"Dumbbell Shoulder Press",sets:"3 × 10",       rest:"90 sec",       svg:"ohp",       tip:"Press straight up, don't flare elbows past 90°, ribs down.", yt:"seated dumbbell shoulder press proper form"},
+      {id:"plank",     name:"Plank",                  sets:"3 × 45–60 sec", rest:"60 sec", svg:"plank",     tip:"Straight line ear-to-ankle, squeeze glutes, don't sag hips.", yt:"plank exercise proper form", bodyweight:true, timed:true},
+      {id:"kneeraise", name:"Hanging Knee Raise",     sets:"3 × 12",       rest:"60 sec",       svg:"kneeraise", tip:"Control the swing — curl knees to chest, exhale at top.", yt:"hanging knee raise proper form", bodyweight:true}
+    ]
+  },
+  tue: {
+    title: "Swimming + Mobility", sub: "Pool · 30–45 min", type: "swim",
+    warmup: "<b>Suggested session:</b> 5 min easy swim · 20 min freestyle · 10 min interval laps · 5 min cool down. <b>Afterwards:</b> hip flexor stretch, chest stretch, shoulder mobility.",
+    yt: "freestyle swimming technique for beginners"
+  },
+  wed: {
+    title: "Upper Body Hypertrophy", sub: "Gym · muscle building", type: "gym",
+    warmup: "<b>Warm-up:</b> 5–10 minutes light cardio + arm circles and band work. Stretch after the session.",
+    exercises: [
+      {id:"inclinedb", name:"Incline Dumbbell Press", sets:"4 × 10", rest:"90 sec", svg:"inclinepress", tip:"Bench at 30–45°, lower dumbbells to upper chest.", yt:"incline dumbbell press proper form"},
+      {id:"latpull",   name:"Lat Pulldown",           sets:"4 × 10", rest:"90 sec", svg:"latpulldown",  tip:"Chest up, pull bar to collarbone, no leaning back hard.", yt:"lat pulldown proper form"},
+      {id:"cablerow",  name:"Seated Cable Row",       sets:"3 × 12", rest:"90 sec", svg:"cablerow",     tip:"Pull to belly button, squeeze shoulder blades together.", yt:"seated cable row proper form"},
+      {id:"chestpress",name:"Machine Chest Press",    sets:"3 × 12", rest:"90 sec", svg:"chestpress",   tip:"Handles at mid-chest height, full range without locking out.", yt:"machine chest press proper form"},
+      {id:"latraise",  name:"Dumbbell Lateral Raise", sets:"3 × 15", rest:"60 sec", svg:"latraise",     tip:"Slight elbow bend, raise to shoulder height, lead with elbows.", yt:"dumbbell lateral raise proper form"},
+      {id:"facepull",  name:"Face Pull",              sets:"3 × 15", rest:"60 sec", svg:"facepull",     tip:"Rope to face, elbows high, external rotate at the end.", yt:"cable face pull proper form"},
+      {id:"ezcurl",    name:"EZ Bar Curl",            sets:"3 × 12", rest:"60 sec", svg:"curl",         tip:"Elbows pinned to sides, no swinging, full stretch at bottom.", yt:"ez bar curl proper form"},
+      {id:"pushdown",  name:"Rope Triceps Pushdown",  sets:"3 × 12", rest:"60 sec", svg:"pushdown",     tip:"Elbows locked at sides, spread the rope at the bottom.", yt:"rope triceps pushdown proper form"},
+      {id:"cablecrunch",name:"Cable Crunch",          sets:"3 × 15", rest:"60 sec", svg:"cablecrunch",  tip:"Kneel, crunch ribs to hips — spine flexes, hips stay still.", yt:"kneeling cable crunch proper form"}
+    ]
+  },
+  thu: {
+    title: "Swimming + Recovery", sub: "Pool · 30–45 min · keep it moderate", type: "swim",
+    warmup: "<b>Recovery swim:</b> keep the pace moderate and easy. Do mobility work afterwards.",
+    yt: "recovery swim easy technique drills"
+  },
+  fri: {
+    title: "Full Body Strength B", sub: "Gym · heavy compounds", type: "gym",
+    warmup: "<b>Warm-up (10 min):</b> light cardio + dynamic mobility. 2 light warm-up sets before deadlifts. Stretch after the session.",
+    exercises: [
+      {id:"deadlift",  name:"Deadlift",                    sets:"4 × 5",  rest:"3 min",  svg:"deadlift",   tip:"Bar over mid-foot, flat back, push the floor away, hips and chest rise together.", yt:"conventional deadlift proper form beginner"},
+      {id:"legpress",  name:"Leg Press",                   sets:"3 × 10", rest:"2 min",  svg:"legpress",   tip:"Feet shoulder-width, lower until 90°, never lock knees hard.", yt:"leg press machine proper form"},
+      {id:"splitsquat",name:"Bulgarian Split Squat",       sets:"3 × 10 / leg", rest:"90 sec", svg:"splitsquat", tip:"Rear foot on bench, torso slightly forward, front knee tracks over toes.", yt:"bulgarian split squat proper form"},
+      {id:"pullup",    name:"Pull-ups (or Assisted)",      sets:"3 × max", rest:"2 min", svg:"pullup",     tip:"Full hang to chin over bar. Use the assist machine or bands if needed.", yt:"pull up proper form beginner assisted", bodyweight:true},
+      {id:"inclinebb", name:"Incline Barbell Bench Press", sets:"3 × 8",  rest:"2 min",  svg:"inclinepress", tip:"Bench at 30°, bar to upper chest, wrists stacked over elbows.", yt:"incline barbell bench press proper form"},
+      {id:"seateddb",  name:"Seated DB Shoulder Press",    sets:"3 × 10", rest:"90 sec", svg:"ohp",        tip:"Back supported, press up and slightly in, don't bang the dumbbells.", yt:"seated dumbbell shoulder press proper form"},
+      {id:"farmer",    name:"Farmer Carry",                sets:"3 × 30 m", rest:"90 sec", svg:"farmer",   tip:"Heavy dumbbells, tall posture, quick small steps, crush grip.", yt:"farmers carry proper form"},
+      {id:"sideplank", name:"Side Plank",                  sets:"3 × 30–45 s / side", rest:"60 sec", svg:"sideplank", tip:"Elbow under shoulder, lift hips, straight line head-to-feet.", yt:"side plank proper form", bodyweight:true, timed:true}
+    ]
+  },
+  sat: {
+    title: "Rest / Light Walk", sub: "20–30 min easy walk", type: "walk",
+    warmup: "<b>Active recovery:</b> an easy 20–30 minute walk. Nothing intense — the goal is blood flow and recovery.",
+    yt: ""
+  },
+  sun: {
+    title: "Full Rest", sub: "Recovery day", type: "rest",
+    warmup: "<b>Full rest.</b> Sleep well, eat enough protein (~1.6–2 g per kg bodyweight ≈ 100–120 g for you), stay hydrated. Muscle grows on rest days.",
+    yt: ""
+  }
+};
+const DAY_KEYS = ["mon","tue","wed","thu","fri","sat","sun"];
+const DAY_NAMES = {mon:"Monday",tue:"Tuesday",wed:"Wednesday",thu:"Thursday",fri:"Friday",sat:"Saturday",sun:"Sunday"};
+function ytUrl(q){ return q.startsWith("http") ? q : "https://www.youtube.com/results?search_query=" + encodeURIComponent(q); }
+/* ============ SVG ILLUSTRATIONS ============ */
+// Simple line-art technique figures. B = body stroke, E = equipment stroke.
+const GROUND = '<line x1="12" y1="88" x2="108" y2="88" stroke="#c9dcf5" stroke-width="3"/>';
+function wrapSvg(inner){
+  return '<svg viewBox="0 0 120 96" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1a5cb0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">' + inner + '</svg>';
+}
+const E = 'stroke="#8fb9ee"';
+const SVGS = {
+squat: GROUND +
+  '<line x1="32" y1="40" x2="80" y2="40" '+E+' stroke-width="5"/>' +
+  '<circle cx="32" cy="40" r="8" '+E+' stroke-width="5"/><circle cx="80" cy="40" r="8" '+E+' stroke-width="5"/>' +
+  '<circle cx="60" cy="29" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M58 37 L50 58 L68 62 L66 86 L76 86"/>' +
+  '<path d="M54 44 L66 41"/>',
+bench: GROUND +
+  '<line x1="22" y1="70" x2="94" y2="70" '+E+' stroke-width="6"/>' +
+  '<line x1="30" y1="72" x2="30" y2="87" '+E+'/><line x1="84" y1="72" x2="84" y2="87" '+E+'/>' +
+  '<circle cx="30" cy="60" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M38 64 L70 64 L84 76 L84 87"/>' +
+  '<line x1="47" y1="62" x2="47" y2="40"/>' +
+  '<line x1="29" y1="37" x2="66" y2="37" '+E+' stroke-width="5"/>' +
+  '<circle cx="29" cy="37" r="6" '+E+' stroke-width="5"/><circle cx="66" cy="37" r="6" '+E+' stroke-width="5"/>',
+row: GROUND +
+  '<circle cx="81" cy="38" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M46 86 L51 61 L75 43"/><path d="M58 86 L53 61"/>' +
+  '<path d="M72 47 L69 66"/>' +
+  '<line x1="56" y1="68" x2="84" y2="68" '+E+' stroke-width="5"/>' +
+  '<circle cx="56" cy="68" r="6" '+E+' stroke-width="5"/><circle cx="84" cy="68" r="6" '+E+' stroke-width="5"/>',
+deadlift: GROUND +
+  '<circle cx="80" cy="35" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M60 88 L58 58 L74 40"/><path d="M70 88 L62 58"/>' +
+  '<path d="M71 44 L68 74"/>' +
+  '<line x1="48" y1="77" x2="88" y2="77" '+E+' stroke-width="5"/>' +
+  '<circle cx="48" cy="77" r="10" '+E+' stroke-width="5"/><circle cx="88" cy="77" r="10" '+E+' stroke-width="5"/>',
+ohp: GROUND +
+  '<circle cx="60" cy="28" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M60 36 L60 60 L52 87"/><path d="M60 60 L68 87"/>' +
+  '<path d="M60 40 L46 22"/><path d="M60 40 L74 22"/>' +
+  '<line x1="40" y1="14" x2="48" y2="26" '+E+' stroke-width="6"/>' +
+  '<line x1="80" y1="14" x2="72" y2="26" '+E+' stroke-width="6"/>',
+plank: GROUND +
+  '<circle cx="28" cy="56" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M36 61 L66 66 L92 72 L96 86"/>' +
+  '<path d="M39 63 L40 84"/><line x1="32" y1="85" x2="50" y2="85"/>',
+kneeraise:
+  '<line x1="28" y1="12" x2="92" y2="12" '+E+' stroke-width="5"/>' +
+  '<circle cx="60" cy="27" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M52 13 L57 34"/><path d="M68 13 L63 34"/>' +
+  '<path d="M60 34 L60 58 L77 53 L73 68"/>',
+pullup:
+  '<line x1="28" y1="12" x2="92" y2="12" '+E+' stroke-width="5"/>' +
+  '<circle cx="60" cy="22" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M49 13 L47 24 L56 30"/><path d="M71 13 L73 24 L64 30"/>' +
+  '<path d="M60 30 L60 58 L55 76 L61 86"/>',
+inclinepress: GROUND +
+  '<line x1="40" y1="80" x2="68" y2="46" '+E+' stroke-width="6"/>' +
+  '<line x1="54" y1="66" x2="54" y2="87" '+E+'/>' +
+  '<circle cx="72" cy="40" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M46 76 L66 50"/>' +
+  '<path d="M64 52 L74 30"/>' +
+  '<line x1="66" y1="24" x2="82" y2="28" '+E+' stroke-width="6"/>',
+latpulldown: GROUND +
+  '<line x1="40" y1="22" x2="76" y2="22" '+E+' stroke-width="5"/>' +
+  '<line x1="58" y1="6" x2="58" y2="20" '+E+' stroke-width="2"/>' +
+  '<circle cx="58" cy="36" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M58 44 L58 68 L78 68 L78 87"/>' +
+  '<path d="M58 46 L44 25"/><path d="M58 46 L72 25"/>' +
+  '<line x1="40" y1="70" x2="60" y2="70" '+E+'/>',
+cablerow: GROUND +
+  '<circle cx="50" cy="40" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M50 48 L47 68 L76 72 L86 84"/>' +
+  '<path d="M51 51 L70 56"/>' +
+  '<line x1="92" y1="60" x2="92" y2="87" '+E+' stroke-width="5"/>' +
+  '<line x1="72" y1="56" x2="90" y2="56" '+E+' stroke-width="2"/>',
+chestpress: GROUND +
+  '<line x1="42" y1="42" x2="42" y2="80" '+E+' stroke-width="6"/>' +
+  '<line x1="42" y1="80" x2="60" y2="80" '+E+'/>' +
+  '<circle cx="49" cy="34" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M49 42 L47 70 L62 74 L62 87"/>' +
+  '<path d="M49 48 L74 48"/>' +
+  '<line x1="77" y1="40" x2="77" y2="56" '+E+' stroke-width="5"/>',
+latraise: GROUND +
+  '<circle cx="60" cy="24" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M60 32 L60 62 L50 87"/><path d="M60 62 L70 87"/>' +
+  '<path d="M60 37 L34 32"/><path d="M60 37 L86 32"/>' +
+  '<circle cx="30" cy="31" r="5" fill="#8fb9ee" stroke="none"/><circle cx="90" cy="31" r="5" fill="#8fb9ee" stroke="none"/>',
+facepull: GROUND +
+  '<circle cx="46" cy="30" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M46 38 L46 66 L38 87"/><path d="M46 66 L54 87"/>' +
+  '<path d="M46 42 L64 34 L76 30"/>' +
+  '<circle cx="104" cy="22" r="4" '+E+'/>' +
+  '<line x1="78" y1="30" x2="101" y2="24" '+E+' stroke-width="2"/>',
+curl: GROUND +
+  '<circle cx="58" cy="24" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M58 32 L58 62 L50 87"/><path d="M58 62 L66 87"/>' +
+  '<path d="M58 38 L58 52 L72 44"/>' +
+  '<line x1="66" y1="40" x2="80" y2="46" '+E+' stroke-width="5"/>',
+pushdown: GROUND +
+  '<circle cx="50" cy="26" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M50 34 L50 64 L42 87"/><path d="M50 64 L58 87"/>' +
+  '<circle cx="76" cy="10" r="4" '+E+'/>' +
+  '<line x1="76" y1="14" x2="74" y2="38" '+E+' stroke-width="2"/>' +
+  '<path d="M74 38 L68 56 M74 38 L82 56" '+E+' stroke-width="3"/>' +
+  '<path d="M50 40 L58 48 L68 55"/>',
+cablecrunch: GROUND +
+  '<circle cx="45" cy="56" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M66 70 L52 60"/>' +
+  '<path d="M66 70 L58 87 L78 87"/>' +
+  '<circle cx="28" cy="10" r="4" '+E+'/>' +
+  '<line x1="30" y1="13" x2="47" y2="52" '+E+' stroke-width="2"/>',
+legcurl: GROUND +
+  '<line x1="26" y1="66" x2="92" y2="66" '+E+' stroke-width="6"/>' +
+  '<line x1="34" y1="68" x2="34" y2="87" '+E+'/><line x1="84" y1="68" x2="84" y2="87" '+E+'/>' +
+  '<circle cx="30" cy="57" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M38 61 L72 61 L84 62 L80 44"/>' +
+  '<circle cx="79" cy="41" r="4" fill="#8fb9ee" stroke="none"/>',
+legpress: GROUND +
+  '<line x1="28" y1="48" x2="46" y2="76" '+E+' stroke-width="6"/>' +
+  '<circle cx="32" cy="40" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M38 50 L52 70 L68 50 L84 44"/>' +
+  '<line x1="86" y1="32" x2="98" y2="60" '+E+' stroke-width="6"/>',
+splitsquat: GROUND +
+  '<line x1="76" y1="68" x2="102" y2="68" '+E+' stroke-width="5"/>' +
+  '<line x1="82" y1="70" x2="82" y2="87" '+E+'/><line x1="98" y1="70" x2="98" y2="87" '+E+'/>' +
+  '<circle cx="56" cy="30" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M56 38 L54 62 L38 66 L36 87"/>' +
+  '<path d="M54 62 L68 72 L80 64"/>',
+farmer: GROUND +
+  '<circle cx="60" cy="22" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M60 30 L60 58 L48 86"/><path d="M60 58 L72 86"/>' +
+  '<path d="M60 36 L46 62"/><path d="M60 36 L74 62"/>' +
+  '<line x1="38" y1="64" x2="52" y2="64" '+E+' stroke-width="6"/>' +
+  '<line x1="68" y1="64" x2="82" y2="64" '+E+' stroke-width="6"/>',
+sideplank: GROUND +
+  '<circle cx="36" cy="54" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M44 62 L68 70 L94 80"/>' +
+  '<path d="M44 64 L42 84"/><line x1="34" y1="85" x2="52" y2="85"/>',
+swim:
+  '<path d="M12 72 q8 -8 16 0 t16 0 t16 0 t16 0 t16 0 t16 0" '+E+' stroke-width="3"/>' +
+  '<circle cx="86" cy="54" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M80 58 L46 62"/>' +
+  '<path d="M74 56 q10 -20 24 -8"/>' +
+  '<path d="M46 62 L36 56 M46 62 L37 68"/>',
+walk: GROUND +
+  '<circle cx="60" cy="24" r="6" fill="#1a5cb0" stroke="none"/>' +
+  '<path d="M60 32 L58 58"/>' +
+  '<path d="M58 58 L46 74 L48 87"/><path d="M58 58 L70 72 L78 84"/>' +
+  '<path d="M60 38 L50 52"/><path d="M60 38 L70 50"/>',
+rest:
+  '<path d="M72 26 a22 22 0 1 0 6 40 a18 18 0 1 1 -6 -40" fill="#8fb9ee" stroke="none"/>' +
+  '<text x="82" y="34" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#1a5cb0" stroke="none">Z</text>' +
+  '<text x="94" y="24" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#8fb9ee" stroke="none">z</text>'
+};
+/* ============ APP LOGIC ============ */
+const $ = id => document.getElementById(id);
+const LS_DB = "tt_db", LS_CFG = "tt_cfg", LS_LEGACY = "tt_log";
+const FILE_PATH = "data/workout-log.db"; // real SQLite database file, committed to the repo
+
+let SQL = null, db = null;          // sql.js engine + open SQLite database
+let LOG = { weeks: {} };            // in-memory mirror of the db, used for rendering
+let CFG = JSON.parse(localStorage.getItem(LS_CFG) || "{}");
+let activeDay = ["sun","mon","tue","wed","thu","fri","sat"][new Date().getDay()];
+let viewMonday = mondayOf(new Date());
+let syncTimer = null;
+
+/* ---- SQLite layer (sql.js / WebAssembly) ---- */
+const SCHEMA = `
+CREATE TABLE IF NOT EXISTS exercise_logs(
+  week TEXT NOT NULL, day TEXT NOT NULL, exercise TEXT NOT NULL,
+  done INTEGER DEFAULT 0, weight REAL, reps REAL, updated INTEGER NOT NULL,
+  PRIMARY KEY(week, day, exercise));
+CREATE TABLE IF NOT EXISTS session_logs(
+  week TEXT NOT NULL, day TEXT NOT NULL,
+  done INTEGER DEFAULT 0, laps REAL, minutes REAL, updated INTEGER NOT NULL,
+  PRIMARY KEY(week, day));`;
+
+function newDb(bytes){
+  const d = bytes ? new SQL.Database(bytes) : new SQL.Database();
+  d.run(SCHEMA);
+  return d;
+}
+function u8ToB64(u8){
+  let s = ""; const CH = 0x8000;
+  for (let i = 0; i < u8.length; i += CH) s += String.fromCharCode.apply(null, u8.subarray(i, i+CH));
+  return btoa(s);
+}
+function b64ToU8(b64){
+  const s = atob(b64.replace(/\n/g,"")); const u8 = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) u8[i] = s.charCodeAt(i);
+  return u8;
+}
+function persistLocal(){ localStorage.setItem(LS_DB, u8ToB64(db.export())); }
+
+// Rebuild the render mirror from the database
+function buildLog(d){
+  const log = { weeks: {} };
+  const put = (week, day, exId, obj) => {
+    log.weeks[week] = log.weeks[week] || {};
+    log.weeks[week][day] = log.weeks[week][day] || {};
+    if (exId) log.weeks[week][day][exId] = obj; else Object.assign(log.weeks[week][day], obj);
+  };
+  let st = d.prepare("SELECT week,day,exercise,done,weight,reps,updated FROM exercise_logs");
+  while (st.step()){ const r = st.getAsObject();
+    put(r.week, r.day, r.exercise, {done:r.done, w:r.weight??"", r:r.reps??"", t:r.updated}); }
+  st.free();
+  st = d.prepare("SELECT week,day,done,laps,minutes,updated FROM session_logs");
+  while (st.step()){ const r = st.getAsObject();
+    put(r.week, r.day, null, {done:r.done, laps:r.laps??"", min:r.minutes??"", t:r.updated}); }
+  st.free();
+  return log;
+}
+
+// Column mapping: UI field -> db column
+const EX_COLS = { w:"weight", r:"reps", done:"done" };
+const SES_COLS = { laps:"laps", min:"minutes", done:"done" };
+
+function setVal(day, exId, field, value){
+  if (!db){ setStatus("Database still loading — try again in a second", "err"); return; }
+  const week = wk(viewMonday), now = Date.now();
+  const v = value === "" ? null : value;
+  if (exId){
+    const col = EX_COLS[field];
+    db.run(`INSERT INTO exercise_logs(week,day,exercise,${col},updated) VALUES(?,?,?,?,?)
+            ON CONFLICT(week,day,exercise) DO UPDATE SET ${col}=excluded.${col}, updated=excluded.updated`,
+           [week, day, exId, v, now]);
+  } else {
+    const col = SES_COLS[field];
+    db.run(`INSERT INTO session_logs(week,day,${col},updated) VALUES(?,?,?,?)
+            ON CONFLICT(week,day) DO UPDATE SET ${col}=excluded.${col}, updated=excluded.updated`,
+           [week, day, v, now]);
+  }
+  // update mirror
+  LOG.weeks[week] = LOG.weeks[week] || {};
+  LOG.weeks[week][day] = LOG.weeks[week][day] || {};
+  const target = exId ? (LOG.weeks[week][day][exId] = LOG.weeks[week][day][exId] || {}) : LOG.weeks[week][day];
+  target[field] = value; target.t = now;
+  persistLocal(); scheduleSync();
+}
+
+function mondayOf(d){
+  d = new Date(d); const day = (d.getDay() + 6) % 7; // 0=Mon
+  d.setDate(d.getDate() - day); d.setHours(0,0,0,0); return d;
+}
+function wk(d){ return d.toISOString().slice(0,10); }
+function fmtRange(mon){
+  const end = new Date(mon); end.setDate(end.getDate()+6);
+  const o = {month:"short", day:"numeric"};
+  return mon.toLocaleDateString("en-GB",o) + " – " + end.toLocaleDateString("en-GB",o) + ", " + end.getFullYear();
+}
+function getDayLog(weekKey, day){
+  return ((LOG.weeks[weekKey]||{})[day]) || {};
+}
+
+/* ---- global handlers used by inline attributes ---- */
+window.upd = (day, exId, field, value) => { setVal(day, exId, field, value); refreshTabs(); };
+window.updDay = (day, field, value) => { setVal(day, null, field, value); refreshTabs(); };
+window.toggleDone = (day, exId, btn) => {
+  const k = wk(viewMonday);
+  const cur = exId ? (getDayLog(k,day)[exId]||{}) : getDayLog(k,day);
+  const nv = cur.done ? 0 : 1;
+  setVal(day, exId, "done", nv);
+  btn.classList.toggle("on", !!nv);
+  btn.textContent = nv ? "✓ Done" : "Mark done";
+  btn.closest(".card").classList.toggle("done", !!nv);
+  refreshTabs(); renderHistory();
+};
+
+/* ---- previous-week best lookup ---- */
+function lastResult(day, exId){
+  const cur = wk(viewMonday);
+  const keys = Object.keys(LOG.weeks).filter(k => k < cur).sort().reverse();
+  for (const k of keys){
+    const e = (LOG.weeks[k][day]||{})[exId];
+    if (e && (e.w || e.r)) return {week:k, w:e.w, r:e.r};
+  }
+  return null;
+}
+
+/* ---- rendering ---- */
+function render(){
+  $("weekLabel").textContent = fmtRange(viewMonday);
+  refreshTabs(); renderDay(); renderHistory();
+}
+function dayComplete(k, day){
+  const p = PROGRAM[day], l = getDayLog(k, day);
+  if (p.type === "gym") return p.exercises.every(e => (l[e.id]||{}).done);
+  if (p.type === "swim" || p.type === "walk") return !!l.done;
+  return false;
+}
+function refreshTabs(){
+  const k = wk(viewMonday);
+  $("tabs").innerHTML = DAY_KEYS.map(d => {
+    const p = PROGRAM[d];
+    const dot = dayComplete(k,d) ? '<span class="dot"></span>' : "";
+    return `<button class="tab ${d===activeDay?"active":""}" onclick="selDay('${d}')">
+      <div class="d">${DAY_NAMES[d].slice(0,3)}${dot}</div><div class="t">${p.title}</div></button>`;
+  }).join("");
+  // progress pill
+  const p = PROGRAM[activeDay], l = getDayLog(k, activeDay);
+  const pill = $("progressPill");
+  if (pill && p.type === "gym"){
+    const done = p.exercises.filter(e => (l[e.id]||{}).done).length;
+    pill.textContent = done + " / " + p.exercises.length + " done";
+  }
+}
+window.selDay = d => { activeDay = d; render(); };
+
+function ytBtn(q, label){
+  if (!q) return "";
+  return `<a class="yt-link" href="${ytUrl(q)}" target="_blank" rel="noopener"><span class="play">&#9654;</span> ${label||"Watch form video"}</a>`;
+}
+
+function renderDay(){
+  const day = activeDay, p = PROGRAM[day], k = wk(viewMonday), l = getDayLog(k, day);
+  let html = `<div class="day-head"><h2>${DAY_NAMES[day]} — ${p.title}</h2><span class="sub">${p.sub}</span>`;
+  if (p.type === "gym") html += `<span class="progress-pill" id="progressPill"></span>`;
+  html += `</div><div class="note-box">${p.warmup}</div>`;
+
+  if (p.type === "gym"){
+    html += '<div class="grid">' + p.exercises.map((e,i) => {
+      const el = l[e.id] || {};
+      const last = lastResult(day, e.id);
+      const wField = e.bodyweight ? "" :
+        `<div class="field"><label>Max weight (kg)</label><input type="number" min="0" step="0.5" value="${el.w??""}" oninput="upd('${day}','${e.id}','w',this.value)"></div>`;
+      const rLabel = e.timed ? "Max secs" : "Max reps";
+      return `<div class="card ${el.done?"done":""}">
+        <div class="card-top">
+          <div class="fig">${wrapSvg(SVGS[e.svg])}</div>
+          <div class="card-info">
+            <div class="num">EXERCISE ${i+1}</div><h3>${e.name}</h3>
+            <div class="target"><span class="chip">${e.sets}</span><span class="chip rest">Rest ${e.rest}</span></div>
+            <div class="tip">${e.tip}</div>
+            ${ytBtn(e.yt)}
+          </div>
+        </div>
+        <div class="card-log">
+          ${wField}
+          <div class="field"><label>${rLabel}</label><input type="number" min="0" value="${el.r??""}" oninput="upd('${day}','${e.id}','r',this.value)"></div>
+          <button class="done-btn ${el.done?"on":""}" onclick="toggleDone('${day}','${e.id}',this)">${el.done?"✓ Done":"Mark done"}</button>
+          ${last ? `<div class="best">Last logged: ${last.w?last.w+" kg × ":""}${last.r||"—"} ${e.timed?"sec":"reps"} (week of ${last.week})</div>` : ""}
+        </div>
+      </div>`;
+    }).join("") + "</div>";
+  }
+  else if (p.type === "swim"){
+    html += `<div class="grid"><div class="card ${l.done?"done":""}" style="grid-column:1/-1">
+      <div class="card-top">
+        <div class="fig">${wrapSvg(SVGS.swim)}</div>
+        <div class="card-info">
+          <div class="num">POOL SESSION</div><h3>${p.title}</h3>
+          <div class="target"><span class="chip">30–45 min</span></div>
+          ${ytBtn(p.yt, "Watch technique video")}
+        </div>
+      </div>
+      <div class="card-log">
+        <div class="field"><label>Laps done</label><input type="number" min="0" value="${l.laps??""}" oninput="updDay('${day}','laps',this.value)"></div>
+        <div class="field"><label>Minutes</label><input type="number" min="0" value="${l.min??""}" oninput="updDay('${day}','min',this.value)"></div>
+        <button class="done-btn ${l.done?"on":""}" onclick="toggleDone('${day}',null,this)">${l.done?"✓ Done":"Mark done"}</button>
+      </div>
+    </div></div>`;
+  }
+  else if (p.type === "walk"){
+    html += `<div class="grid"><div class="card ${l.done?"done":""}" style="grid-column:1/-1">
+      <div class="card-top">
+        <div class="fig">${wrapSvg(SVGS.walk)}</div>
+        <div class="card-info"><div class="num">ACTIVE RECOVERY</div><h3>Light Walk</h3>
+        <div class="target"><span class="chip">20–30 min</span></div></div>
+      </div>
+      <div class="card-log">
+        <div class="field"><label>Minutes</label><input type="number" min="0" value="${l.min??""}" oninput="updDay('${day}','min',this.value)"></div>
+        <button class="done-btn ${l.done?"on":""}" onclick="toggleDone('${day}',null,this)">${l.done?"✓ Done":"Mark done"}</button>
+      </div>
+    </div></div>`;
+  }
+  else { // rest
+    html += `<div class="grid"><div class="card" style="grid-column:1/-1">
+      <div class="card-top">
+        <div class="fig">${wrapSvg(SVGS.rest)}</div>
+        <div class="card-info"><div class="num">RECOVERY</div><h3>Full Rest Day</h3>
+        <div class="tip">No training today. Recovery is where strength is built.</div></div>
+      </div>
+    </div></div>`;
+  }
+  $("dayView").innerHTML = html;
+  refreshTabs();
+}
+
+function renderHistory(){
+  const day = activeDay, p = PROGRAM[day];
+  const keys = Object.keys(LOG.weeks).sort().reverse().slice(0,10);
+  let rows = "";
+  for (const k of keys){
+    const l = LOG.weeks[k][day]; if (!l) continue;
+    if (p.type === "gym"){
+      const parts = p.exercises.filter(e => l[e.id] && (l[e.id].w || l[e.id].r || l[e.id].done))
+        .map(e => `${e.name.split(" ").slice(0,2).join(" ")}: ${l[e.id].w?l[e.id].w+"kg × ":""}${l[e.id].r||"✓"}`);
+      if (!parts.length) continue;
+      const done = p.exercises.filter(e => (l[e.id]||{}).done).length;
+      rows += `<tr><td>Week of ${k}</td><td>${done}/${p.exercises.length}</td><td class="muted">${parts.join(" · ")}</td></tr>`;
+    } else if (p.type === "swim"){
+      if (!(l.laps || l.min || l.done)) continue;
+      rows += `<tr><td>Week of ${k}</td><td>${l.done?"✓":"—"}</td><td class="muted">${l.laps||"—"} laps · ${l.min||"—"} min</td></tr>`;
+    } else if (p.type === "walk"){
+      if (!(l.min || l.done)) continue;
+      rows += `<tr><td>Week of ${k}</td><td>${l.done?"✓":"—"}</td><td class="muted">${l.min||"—"} min walk</td></tr>`;
+    }
+  }
+  $("historyView").innerHTML = rows
+    ? `<h2>History — ${DAY_NAMES[day]}</h2><table><tr><th>Week</th><th>Done</th><th>Log</th></tr>${rows}</table>`
+    : "";
+}
+
+/* ---- GitHub sync ---- */
+function ghConfigured(){ return CFG.owner && CFG.repo && CFG.token; }
+function ghHeaders(){
+  return { "Authorization": "Bearer " + CFG.token, "Accept": "application/vnd.github+json" };
+}
+function ghUrl(){
+  return `https://api.github.com/repos/${CFG.owner}/${CFG.repo}/contents/${FILE_PATH}` +
+         (CFG.branch ? `?ref=${CFG.branch}` : "");
+}
+async function ghLoad(){
+  const res = await fetch(ghUrl(), { headers: ghHeaders() });
+  if (res.status === 404) return { bytes:null, sha:null };
+  if (!res.ok) throw new Error("GitHub read failed (" + res.status + ")");
+  const j = await res.json();
+  return { bytes: b64ToU8(j.content), sha: j.sha };
+}
+
+// Row-level merge of two SQLite databases: the newer `updated` timestamp wins per row.
+function mergeDbs(baseBytes, localDb){
+  const merged = newDb(baseBytes); // start from remote copy
+  const upsertEx = merged.prepare(
+    `INSERT INTO exercise_logs(week,day,exercise,done,weight,reps,updated) VALUES(?,?,?,?,?,?,?)
+     ON CONFLICT(week,day,exercise) DO UPDATE SET
+       done=excluded.done, weight=excluded.weight, reps=excluded.reps, updated=excluded.updated
+     WHERE excluded.updated > exercise_logs.updated`);
+  let st = localDb.prepare("SELECT week,day,exercise,done,weight,reps,updated FROM exercise_logs");
+  while (st.step()){ const r = st.get(); upsertEx.run(r); }
+  st.free(); upsertEx.free();
+  const upsertSes = merged.prepare(
+    `INSERT INTO session_logs(week,day,done,laps,minutes,updated) VALUES(?,?,?,?,?,?)
+     ON CONFLICT(week,day) DO UPDATE SET
+       done=excluded.done, laps=excluded.laps, minutes=excluded.minutes, updated=excluded.updated
+     WHERE excluded.updated > session_logs.updated`);
+  st = localDb.prepare("SELECT week,day,done,laps,minutes,updated FROM session_logs");
+  while (st.step()){ const r = st.get(); upsertSes.run(r); }
+  st.free(); upsertSes.free();
+  return merged;
+}
+
+async function syncNow(quiet){
+  if (!ghConfigured()){ if(!quiet){ setStatus("Set up GitHub sync in Settings","err"); openModal(); } return; }
+  if (!db){ setStatus("Database still loading…"); return; }
+  try {
+    setStatus("Syncing…");
+    const remote = await ghLoad();
+    const merged = remote.bytes ? mergeDbs(remote.bytes, db) : db;
+    const bytes = merged.export();
+    const body = {
+      message: "Workout log — " + new Date().toISOString().replace("T"," ").slice(0,16),
+      content: u8ToB64(bytes)
+    };
+    if (CFG.branch) body.branch = CFG.branch;
+    if (remote.sha) body.sha = remote.sha;
+    const res = await fetch(ghUrl().split("?")[0], { method:"PUT", headers: ghHeaders(), body: JSON.stringify(body) });
+    if (!res.ok) throw new Error("GitHub write failed (" + res.status + ")");
+    if (merged !== db){ db.close(); db = merged; }
+    LOG = buildLog(db);
+    persistLocal();
+    setStatus("✓ Saved to repo " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}), "ok");
+    render();
+  } catch(err){
+    setStatus("Sync error: " + err.message, "err");
+  }
+}
+function scheduleSync(){
+  if (!ghConfigured()) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => syncNow(true), 4000);
+  setStatus("Unsaved changes…");
+}
+function setStatus(msg, cls){
+  const el = $("syncStatus"); el.textContent = msg; el.className = cls || "";
+}
+
+/* ---- settings modal / export / import ---- */
+function openModal(){
+  $("cfgOwner").value = CFG.owner || "";
+  $("cfgRepo").value = CFG.repo || "";
+  $("cfgBranch").value = CFG.branch || "main";
+  $("cfgToken").value = CFG.token || "";
+  $("modalBg").classList.add("show");
+}
+$("settingsBtn").onclick = openModal;
+$("closeCfg").onclick = () => $("modalBg").classList.remove("show");
+$("modalBg").onclick = e => { if (e.target === $("modalBg")) $("modalBg").classList.remove("show"); };
+$("saveCfg").onclick = () => {
+  CFG = {
+    owner: $("cfgOwner").value.trim(),
+    repo: $("cfgRepo").value.trim(),
+    branch: $("cfgBranch").value.trim() || "main",
+    token: $("cfgToken").value.trim()
+  };
+  localStorage.setItem(LS_CFG, JSON.stringify(CFG));
+  $("modalBg").classList.remove("show");
+  syncNow();
+};
+$("syncBtn").onclick = () => syncNow();
+$("exportBtn").onclick = () => {
+  if (!db) return;
+  const blob = new Blob([db.export()], {type:"application/octet-stream"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "workout-log.db"; a.click();
+};
+$("importBtn").onclick = () => $("importFile").click();
+$("importFile").onchange = e => {
+  const f = e.target.files[0]; if (!f || !db) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const merged = mergeDbs(new Uint8Array(r.result), db); // imported rows lose to newer local rows
+      db.close(); db = merged; LOG = buildLog(db);
+      persistLocal(); render(); setStatus("✓ Imported .db","ok"); scheduleSync();
+    } catch(err){ setStatus("Import failed: not a valid SQLite db","err"); }
+  };
+  r.readAsArrayBuffer(f);
+};
+
+/* ---- week navigation ---- */
+$("prevWeek").onclick = () => { viewMonday.setDate(viewMonday.getDate()-7); render(); };
+$("nextWeek").onclick = () => { viewMonday.setDate(viewMonday.getDate()+7); render(); };
+
+/* ---- one-time migration from the old JSON format ---- */
+function migrateLegacy(){
+  const raw = localStorage.getItem(LS_LEGACY);
+  if (!raw) return;
+  try {
+    const old = JSON.parse(raw);
+    for (const [week, days] of Object.entries(old.weeks || {})){
+      for (const [day, dl] of Object.entries(days)){
+        if (PROGRAM[day] && PROGRAM[day].type === "gym"){
+          for (const [exId, e] of Object.entries(dl)){
+            if (typeof e !== "object") continue;
+            db.run(`INSERT OR REPLACE INTO exercise_logs(week,day,exercise,done,weight,reps,updated) VALUES(?,?,?,?,?,?,?)`,
+                   [week, day, exId, e.done?1:0, e.w||null, e.r||null, e.t||Date.now()]);
+          }
+        } else {
+          db.run(`INSERT OR REPLACE INTO session_logs(week,day,done,laps,minutes,updated) VALUES(?,?,?,?,?,?)`,
+                 [week, day, dl.done?1:0, dl.laps||null, dl.min||null, dl.t||Date.now()]);
+        }
+      }
+    }
+    localStorage.removeItem(LS_LEGACY);
+  } catch(e){ /* ignore bad legacy data */ }
+}
+
+/* ---- boot ---- */
+setStatus("Loading database engine…");
+render(); // render immediately (inputs activate once the db is ready)
+initSqlJs({ locateFile: f => "https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/" + f })
+  .then(S => {
+    SQL = S;
+    const cached = localStorage.getItem(LS_DB);
+    db = newDb(cached ? b64ToU8(cached) : null);
+    migrateLegacy();
+    LOG = buildLog(db);
+    persistLocal();
+    render();
+    if (ghConfigured()) syncNow(true);
+    else setStatus("Local only — set up GitHub sync in Settings");
+  })
+  .catch(err => setStatus("Could not load SQLite engine: " + err.message, "err"));
+</script>
+</body>
+</html>
